@@ -265,25 +265,7 @@ export const games = [
       storage: "80 GB available space"
     }
   },
-  {
-    id: 16,
-    name: "Hogwarts Legacy",
-    img: require('./Images/games/Hogwarts Legacy.jpg'),
-    review: 4.4,
-    price: 69.99,
-    sale: 5,
-    category: "newest",
-    developer: "Portkey Games",
-    releaseDate: "2023-02-10",
-    details: "Hogwarts Legacy is an immersive, open-world action RPG set in the 1800s wizarding world.",
-    systemRequirements: {
-      os: "Windows 10",
-      processor: "Intel Core i5-6600 (3.3 GHz) or AMD Ryzen 5 1400 (3.2 GHz)",
-      memory: "16 GB RAM",
-      graphics: "NVIDIA GeForce GTX 960 4GB or AMD Radeon RX 470 4GB",
-      storage: "85 GB available space"
-    }
-  },
+
   {
     id: 17,
     name: "Mass Effect Legendary Edition",
@@ -474,25 +456,7 @@ export const games = [
       storage: "100 GB available space"
     }
   },
-  {
-    id: 27,
-    name: "The Legend of Zelda: Breath of the Wild",
-    img: require('./Images/games/The Legend of Zelda Breath of the Wild.jpg'),
-    review: 4.9,
-    price: 59.99,
-    sale: 0,
-    category: "top",
-    developer: "Nintendo",
-    releaseDate: "2017-03-03",
-    details: "Forget everything you know about The Legend of Zelda games. Step into a world of discovery, exploration, and adventure in The Legend of Zelda: Breath of the Wild.",
-    systemRequirements: {
-      os: "Nintendo Switch",
-      processor: "N/A",
-      memory: "N/A",
-      graphics: "N/A",
-      storage: "13.4 GB available space"
-    }
-  },
+
   {
     id: 28,
     name: "The Outer Worlds",
@@ -720,5 +684,340 @@ export const games = [
       graphics: "AMD Radeon RX 570 or NVIDIA GeForce GTX 1050 Ti",
       storage: "50 GB available space"
     }
+  },
+  
+  {
+    id: 41,
+    name: "Fortnite",
+    img: require('./Images/games/Fortnite.jpg'),
+    review: 4.7,
+    price: 0.00,
+    sale: 0,
+    category: "popular",
+    developer: "Epic Games",
+    releaseDate: "2017-07-25",
+    details: "Fortnite is a battle royale game where 100 players fight to be the last one standing.",
+    systemRequirements: {
+      os: "Windows 7/8/10",
+      processor: "Intel Core i3-3225 3.3 GHz",
+      memory: "4 GB RAM",
+      graphics: "Intel HD 4000",
+      storage: "16 GB available space"
+    }
+  },
+
+  {
+    id: 43,
+    name: "Spider-Man: Miles Morales",
+    img: require('./Images/games/Spider-Man Miles Morales.jpg'),
+    review: 4.8,
+    price: 49.99,
+    sale: 20,
+    category: "action",
+    developer: "Insomniac Games",
+    releaseDate: "2020-11-12",
+    details: "In Spider-Man: Miles Morales, players experience the rise of Miles as he masters new powers to become his own Spider-Man.",
+    systemRequirements: {
+      os: "PlayStation 4/5",
+      processor: "Intel Core i5-4670",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GTX 1060",
+      storage: "50 GB available space"
+    }
+  },
+
+  {
+    id: 45,
+    name: "Middle Earth: Shadow Of War",
+    img: require('./Images/games/Middle Earth Shadow Of War.jpg'),
+    review: 4.5,
+    price: 39.99,
+    sale: 15,
+    category: "RPG",
+    developer: "Monolith Productions",
+    releaseDate: "2017-10-10",
+    details: "In Middle-earth: Shadow of War, players build an army to conquer Mordor and take on the Dark Lord Sauron.",
+    systemRequirements: {
+      os: "Windows 7/8.1/10",
+      processor: "Intel Core i5-2300",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GTX 670",
+      storage: "70 GB available space"
+    }
+  },
+  {
+    id: 46,
+    name: "Sleeping Dogs",
+    img: require('./Images/games/Sleeping Dogs.jpg'),
+    review: 4.3,
+    price: 19.99,
+    sale: 20,
+    category: "action",
+    developer: "United Front Games",
+    releaseDate: "2012-08-14",
+    details: "Sleeping Dogs is an open-world action game set in Hong Kong, focusing on martial arts and street combat.",
+    systemRequirements: {
+      os: "Windows Vista/7/8/10",
+      processor: "Intel Core 2 Duo 2.4 GHz or AMD Athlon X2 2.7 GHz",
+      memory: "2 GB RAM",
+      graphics: "NVIDIA GeForce 8800 GT",
+      storage: "15 GB available space"
+    }
+  },
+
+  {
+    id: 48,
+    name: "The Crew 2",
+    img: require('./Images/games/The Crew 2.jpg'),
+    review: 4.2,
+    price: 49.99,
+    sale: 20,
+    category: "racing",
+    developer: "Ivory Tower",
+    releaseDate: "2018-06-29",
+    details: "The Crew 2 is a racing game that lets players explore and race across a large open world in cars, boats, planes, and motorcycles.",
+    systemRequirements: {
+      os: "Windows 7/8.1/10",
+      processor: "Intel Core i5-2400s or AMD FX-6100",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GeForce GTX 660 or AMD HD 7870",
+      storage: "25 GB available space"
+    }
+  },
+  {
+    id: 49,
+    name: "Watch Dogs 2",
+    img: require('./Images/games/Watch Dogs 2.jpg'),
+    review: 4.5,
+    price: 29.99,
+    sale: 15,
+    category: "action",
+    developer: "Ubisoft",
+    releaseDate: "2016-11-15",
+    details: "Watch Dogs 2 follows a hacker named Marcus Holloway as he works with the DedSec group to take down a corrupt system in a fictional version of the San Francisco Bay Area.",
+    systemRequirements: {
+      os: "Windows 7 SP1, Windows 8.1, Windows 10 (64-bit versions only)",
+      processor: "Intel Core i5-2400S @ 2.5 GHz or AMD FX-6120 @ 3.5 GHz",
+      memory: "6 GB RAM",
+      graphics: "NVIDIA GeForce GTX 660 or AMD Radeon HD 7870",
+      storage: "50 GB available space"
+    }
+  },
+  {
+    id: 50,
+    name: "WWE 2K24",
+    img: require('./Images/games/WWE 2K24.jpg'),
+    review: 4.4,
+    price: 59.99,
+    sale: 10,
+    category: "sports",
+    developer: "2K Games",
+    releaseDate: "2024-03-17",
+    details: "WWE 2K24 is the latest installment in the wrestling series, featuring a roster of WWE Superstars and legends.",
+    systemRequirements: {
+      os: "Windows 10",
+      processor: "Intel Core i5-3550 or AMD FX 8150",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GeForce GTX 680 / AMD Radeon HD 7850",
+      storage: "50 GB available space"
+    }
+  },
+  {
+    id: 51,
+    name: "Forza Motorsport",
+    img: require('./Images/games/Forza Motorsport.jpg'),
+    review: 4.9,
+    price: 69.99,
+    sale: 10,
+    category: "racing",
+    developer: "Turn 10 Studios",
+    releaseDate: "2024-05-03",
+    details: "Forza Motorsport is a realistic racing simulation game that offers a wide variety of cars and tracks.",
+    systemRequirements: {
+      os: "Windows 10",
+      processor: "Intel Core i5-3470 / AMD FX-8350",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GeForce GTX 970 / AMD RX 470",
+      storage: "100 GB available space"
+    }
+  },
+  {
+    id: 52,
+    name: "God of War",
+    img: require('./Images/games/God of War.jpg'),
+    review: 4.9,
+    price: 49.99,
+    sale: 0,
+    category: "action",
+    developer: "Santa Monica Studio",
+    releaseDate: "2018-04-20",
+    details: "God of War is an action-adventure game following Kratos and his son Atreus as they journey through Norse mythology.",
+    systemRequirements: {
+      os: "Windows 10",
+      processor: "Intel Core i5-2500K or AMD Ryzen 3 1200",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GTX 960 or AMD R9 290X",
+      storage: "70 GB available space"
+    }
+  },
+  {
+    id: 53,
+    name: "Hellblade 2",
+    img: require('./Images/games/Hellblade 2.jpg'),
+    review: 4.7,
+    price: 49.99,
+    sale: 10,
+    category: "action",
+    developer: "Ninja Theory",
+    releaseDate: "2024-12-31",
+    details: "Hellblade 2 is the sequel to the critically acclaimed Hellblade: Senua's Sacrifice, continuing the journey of Senua through dark and mystical landscapes.",
+    systemRequirements: {
+      os: "Windows 10",
+      processor: "Intel Core i5-4690 or AMD FX-8350",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GeForce GTX 760 / AMD Radeon R9 280X",
+      storage: "50 GB available space"
+    }
+  },
+  {
+    id: 54,
+    name: "Need For Speed Heat",
+    img: require('./Images/games/Need For Speed Heat.jpg'),
+    review: 4.6,
+    price: 39.99,
+    sale: 20,
+    category: "racing",
+    developer: "Ghost Games",
+    releaseDate: "2019-11-08",
+    details: "Need For Speed Heat is a street racing game set in an open-world environment called Palm City.",
+    systemRequirements: {
+      os: "Windows 10",
+      processor: "Intel Core i5-3570 or AMD FX-6350",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GeForce GTX 760 or AMD Radeon R9 280X",
+      storage: "50 GB available space"
+    }
+  },
+  {
+    id: 55,
+    name: "A Plague Tale: Requiem",
+    img: require('./Images/games/A Plague Tale Requiem.jpg'),
+    review: 4.8,
+    price: 49.99,
+    sale: 15,
+    category: "adventure",
+    developer: "Asobo Studio",
+    releaseDate: "2022-10-18",
+    details: "A Plague Tale: Requiem continues the story of Amicia and Hugo as they flee from soldiers and avoid hordes of rats during the Hundred Years' War.",
+    systemRequirements: {
+      os: "Windows 10",
+      processor: "Intel Core i5-4690K / AMD Ryzen 3 1300X",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GTX 970 / AMD Radeon RX 580",
+      storage: "50 GB available space"
+    }
+  },
+  {
+    id: 56,
+    name: "Mirror's Edge",
+    img: require('./Images/games/Mirrors Edge.jpg'),
+    review: 4.4,
+    price: 19.99,
+    sale: 20,
+    category: "action",
+    developer: "DICE",
+    releaseDate: "2008-11-11",
+    details: "Mirror's Edge is a first-person action-adventure platformer that focuses on parkour and acrobatic movements.",
+    systemRequirements: {
+      os: "Windows Vista/7/8/10",
+      processor: "Intel Pentium 4 3.0 GHz or AMD Athlon 64 3400+",
+      memory: "1 GB RAM",
+      graphics: "NVIDIA GeForce 680Here's the continuation with the remaining games",
+      storage: "50 GB available space"
+    }
+  },
+  {
+    id: 56,
+    name: "Mirror's Edge",
+    img: require('./Images/games/Mirrors Edge.jpg'),
+    review: 4.4,
+    price: 19.99,
+    sale: 20,
+    category: "action",
+    developer: "DICE",
+    releaseDate: "2008-11-11",
+    details: "Mirror's Edge is a first-person action-adventure platformer that focuses on parkour and acrobatic movements.",
+    systemRequirements: {
+      os: "Windows Vista/7/8/10",
+      processor: "Intel Pentium 4 3.0 GHz or AMD Athlon 64 3400+",
+      memory: "1 GB RAM",
+      graphics: "NVIDIA GeForce 6800 or ATI Radeon X1300",
+      storage: "8 GB available space"
+    }
+  },
+  {
+    id: 57,
+    name: "Resident Evil Village",
+    img: require('./Images/games/Resident Evil Village.jpg'),
+    review: 4.7,
+    price: 49.99,
+    sale: 15,
+    category: "horror",
+    developer: "Capcom",
+    releaseDate: "2021-05-07",
+    details: "Resident Evil Village continues the story of Ethan Winters in a remote European village filled with monsters and secrets.",
+    systemRequirements: {
+      os: "Windows 10 (64-bit)",
+      processor: "Intel Core i5-7500 / AMD Ryzen 3 1200",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GeForce GTX 1050 Ti / AMD Radeon RX 560",
+      storage: "30 GB available space"
+    }
   }
 ];
+
+export const discover = [
+  {
+    id: 16,
+    name: "Hogwarts Legacy",
+    img: require('./Images/games/Hogwarts Legacy.jpg'),
+    mainImg: require('./Images/games/discover/Hogwarts Legacy.jpg'),
+    details: "Hogwarts Legacy is an immersive, open-world action RPG set in the 1800s wizarding world.",
+  },
+
+  {
+    id: 40,
+    name: "Assassin's Creed Mirage",
+    img: require('./Images/games/Assassins Creed Mirage.jpg'),
+    mainImg: require('./Images/games/discover/Assassins Creed Mirage.jpg'),
+    details: "Assassin's Creed Mirage takes players back to the roots of the series, focusing on stealth and parkour in the vibrant city of Baghdad.",
+  },
+  {
+    id: 42,
+    name: "Marvel's Spider-Man 2",
+    img: require('./Images/games/Marvels Spider-Man 2.jpg'),
+    mainImg: require('./Images/games/discover/Marvels Spider-Man 2.jpg'),
+    details: "Marvel's Spider-Man 2 continues the adventures of Peter Parker and Miles Morales, offering new abilities and a larger open world.",
+  },
+  {
+    id: 44,
+    name: "Metal Gear Solid Delta: Snake Eater",
+    img: require('./Images/games/Metal Gear Solid Delta Snake Eater.jpg'),
+    mainImg: require('./Images/games/discover/Metal Gear Solid Delta Snake Eater.jpg'),
+    details: "A remake of the classic 'Metal Gear Solid 3', featuring updated graphics and gameplay enhancements.",
+  },
+  {
+    id: 47,
+    name: "Starfield",
+    img: require('./Images/games/Starfield.jpg'),
+    mainImg: require('./Images/games/discover/Starfield.jpg'),
+    details: "Starfield is an open-world RPG set in space, offering players a vast universe to explore.",
+  },
+  {
+    id: 27,
+    name: "The Legend of Zelda: Breath of the Wild",
+    img: require('./Images/games/The Legend of Zelda Breath of the Wild.jpg'),
+    mainImg: require('./Images/games/discover/The Legend of Zelda Breath of the Wild.jpg'),
+    details: "Forget everything you know about The Legend of Zelda games. Step into a world of discovery, exploration, and adventure in The Legend of Zelda: Breath of the Wild.",
+  },
+]

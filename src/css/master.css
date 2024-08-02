@@ -45,6 +45,7 @@ body.dark {
 
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -84,10 +85,40 @@ input {
   border: none;
   color: var(--title-color);
 }
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .sideTitle {
   font-size: 16px;
   margin-bottom: 14px;
   padding-left: 12px;
+}
+
+.smallContentHolder {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  font-size: 17px;
+  padding: 18px 26px;
+  align-items: center;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.smallContentHolder:hover,
+.smallContentHolder.active {
+  background: var(--section-color);
+}
+.smallContentHolder img {
+  width: 44px;
+  height: 51px;
+  border-radius: 5px;
+  object-fit: fill;
 }
 
 
@@ -126,28 +157,6 @@ input {
   flex-direction: column;
   gap: 8px;
 }
-.smallContentHolder {
-  display: flex;
-  width: 100%;
-  gap: 8px;
-  font-size: 17px;
-  padding: 18px 26px;
-  align-items: center;
-  border-radius: 5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.smallContentHolder:hover,
-.smallContentHolder.active {
-  background: var(--section-color);
-}
-.smallContentHolder img {
-  width: 44px;
-  height: 51px;
-  border-radius: 5px;
-  object-fit: fill;
-}
 
 .nav .quickLunch {
   margin-top: 15px;
@@ -177,11 +186,6 @@ input {
   padding-left: 322px;
   padding-right: 30px;
 }
-
-.App .main img {
-  width: 100%;
-}
-
 /*! ============= HEADER ============ */
 
 .header {
@@ -192,6 +196,7 @@ input {
   background: var(--body-color);
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 .header .first {
   display: flex;
@@ -246,6 +251,7 @@ position: relative;
 .header .searchHolder .allResult h5 {
   font-size: 15px;
   margin: 12px;
+  overflow-wrap: anywhere;
 }
 .header .links {
   display: flex;
@@ -289,12 +295,128 @@ body.dark .header .links.last .darkLight svg {
   font-size: 22px;
 }
 
-.store {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(151px, 1fr));
-  gap: 13px;
+/*! ========= STORE =========  */
+
+.store .landing {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
 }
-.store img {
-  height: 170px;
+.store .landing .mainSection {
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.store .landing .mainSection img {
+  height: 675px;
+  width: 100%;
   object-fit: cover;
+}
+.store .landing .mainSection .holder {
+  position: absolute;
+  z-index: 2;
+  bottom: 13%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.store .landing .mainSection .holder::before {
+  content: '';
+  position: absolute;
+  left: 43%;
+  top: 65%;
+  box-shadow: 0 0 298px 295px #00000087;
+  z-index: -1;
+}
+.store .landing .mainSection .text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.store .landing .mainSection h4 {
+  color: #fff;
+  font-weight: 400;
+}
+.store .landing .mainSection p {
+  width: 455px;
+  color: #fff;
+  font-weight: 300;
+  line-height: 25px;
+}
+.store .landing .mainSection .buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  align-items: center;
+}
+.store .landing .mainSection .buttons a {
+  background-color: white;
+  padding: 14px 35px;
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  border-radius: 9px;
+}
+.store .landing .mainSection .buttons button {
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 9px;
+  font-size: 15px;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.store .landing .mainSection .buttons button:hover {
+  background-color: #ffffff36;
+}
+.store .landing .mainSection .buttons button svg {
+  font-size: 20px;
+  color: white;
+}
+.store .landing .megaSection {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.store .landing .megaSection img {
+  width: 55px;
+  height: 65px;
+}
+.store .landing .megaSection li {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.store .landing .megaSection li:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--border-color);
+}
+.store .landing .megaSection li.backAnimation:before {
+  animation: backAnimation 7s linear;
+}
+.store .landing .megaSection li.backAnimation {
+  background: var(--section-color);
+}
+.store .landing .megaSection li img,
+.store .landing .megaSection li h5 {
+  z-index: 2;
+}
+
+@keyframes backAnimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
