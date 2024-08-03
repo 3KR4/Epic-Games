@@ -123,8 +123,7 @@ button {
 /* ========= Cards-Swiper =========  */
 
 .swiperSection {
-  margin: 40px 0 150px;
-  margin-bottom: 150px;
+  margin: 40px 0;
 }
 .swiperSection .firstHolder{
   display: flex;

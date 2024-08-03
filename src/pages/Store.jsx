@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { discover } from '../data';
 import GamesSwiper from '../components/GamesSwiper';
 import { FiPlusCircle } from "react-icons/fi";
 
 export default function Store() {
   const [landingIndex, setLandingIndex] = useState(0);
-  
+  const intervalRef = useRef(null);
+
   useEffect(() => {
-    const interval = setInterval(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
       setLandingIndex((prev) => (prev + 1) % discover.length);
     }, 7000);
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(intervalRef.current);
+  }, [landingIndex]);
 
   return (
     <div className='store'>
@@ -43,7 +47,7 @@ export default function Store() {
         </ul>
       </div>
       <GamesSwiper categorie='newest' title="Top New Releases"/>
-      <GamesSwiper categorie='newest' title="Top Popular"/>
+      <GamesSwiper categorie='top' title="Top Popular"/>
     </div>
   );
 }
