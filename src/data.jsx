@@ -764,7 +764,6 @@ export const games = [
       storage: "15 GB available space"
     }
   },
-
   {
     id: 48,
     name: "The Crew 2",
@@ -934,25 +933,6 @@ export const games = [
       memory: "1 GB RAM",
       graphics: "NVIDIA GeForce 680Here's the continuation with the remaining games",
       storage: "50 GB available space"
-    }
-  },
-  {
-    id: 56,
-    name: "Mirror's Edge",
-    img: require('./Images/games/Mirrors Edge.jpg'),
-    review: 4.4,
-    price: 19.99,
-    sale: 20,
-    category: "action",
-    developer: "DICE",
-    releaseDate: "2008-11-11",
-    details: "Mirror's Edge is a first-person action-adventure platformer that focuses on parkour and acrobatic movements.",
-    systemRequirements: {
-      os: "Windows Vista/7/8/10",
-      processor: "Intel Pentium 4 3.0 GHz or AMD Athlon 64 3400+",
-      memory: "1 GB RAM",
-      graphics: "NVIDIA GeForce 6800 or ATI Radeon X1300",
-      storage: "8 GB available space"
     }
   },
   {
