@@ -11,9 +11,11 @@ export default function CollectionSection({category}) {
         <h3>{category[1]}</h3>
         <SlArrowRight />
       </div>
-      {filterdgames.slice(0, 5).map((Game) => (
-        <MainCard data={Game} showPrice={true}/>
-      ))}
+      <div className='holder'>
+        {filterdgames.slice(0, 5).map((Game) => (
+          <MainCard data={Game} showPrice={true}/>
+        ))}
+      </div>
     </div>
   );
 }

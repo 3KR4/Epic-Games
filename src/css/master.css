@@ -16,7 +16,7 @@ body {
 
 :root {
   --body-color:   #ffffff;
-  --main-color:   #008fd0;
+  --main-color:   #2196F3 ;
   --title-color:   #454545;
   --second-title-color:#454545;
   --paragraph-color : #858585;
@@ -147,22 +147,57 @@ button {
 }
 
 
-.swiperSection .navigateIcons {
+.navigateIcons {
   display: flex;
   gap: 27px;
 }
-.swiperSection .navigateIcons svg {
+.navigateIcons svg {
   font-size: 15px;
-  width: 30px;
-  height: 30px;
+  width: 30px !important;
+  height: 30px !important;
   padding: 7px;
   background-color: var(--section-color);
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
 }
-.swiperSection .navigateIcons svg:hover {
+.navigateIcons svg:hover {
   background: var(--border-color);
+}
+
+/* Main pagination container */
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0px, 0px, 0px);
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: 10px; /* Adjust bottom positioning */
+}
+
+
+.swiper-pagination-bullet {
+  width: 11px !important;
+  height: 11px !important;
+  margin: 0 4px !important; 
+  background-color:var(--section-color) !important; 
+  border-radius: 50% !important; 
+  transition: background-color 0.3s !important;
+  opacity: 1 !important; 
+  cursor: pointer !important; 
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--main-color) !important;
+  width: 20px !important;
+  height: 10px !important;
+  opacity: 1 !important;
+  border-radius: 8px !important;
+}
+
+.swiper-pagination-bullet:hover {
+  background-color: rgba(255, 255, 255, 0.8) !important; 
 }
 
 
@@ -274,7 +309,6 @@ button {
 }
 .nav .logo-holder svg {
   font-size: 27px;
-  display: none;
 }
 .nav img {
   width: 34px;
@@ -789,21 +823,28 @@ body.dark .header .links.last .darkLight svg {
 
 /*! ============= collections ============ */
 .collections {
-margin: 25px 0;
+  margin: 25px 0;
+  position: relative;
 }
-.collections .holder {
-  display: grid;
-  gap: 25px;
-  grid-template-columns: repeat(auto-fill, minmax(383px, 1fr));
+.collections .swiper {
+  padding-bottom: 40px;
+}
+.collections .navigateIcons {
+  position: absolute;
+  top: -10.5px;
+  right: 0;
+  z-index: 49;
 }
 .collectionSection {
   display: flex;
   flex-direction: column;
   gap: 6px;
-}
-.collectionSection:not(:first-child) {
-  border-left: 1px solid var(--border-color);
   padding-left: 14px;
+  border-left: 1px solid var(--border-color);
+}
+.swiper-slide:first-child .collectionSection {
+  border-left: none;
+  padding-left: 0;
 }
 .collectionSection .main-card {
   display: flex;
@@ -837,6 +878,7 @@ margin: 25px 0;
   left: unset;
 }
 
+
 @media(max-width:1600px) {
   .store .landing .mainSection img {
     height: 600px;
@@ -850,7 +892,7 @@ margin: 25px 0;
   .freeSection .cards {
     grid-template-columns: repeat(auto-fill, minmax(187px, 1fr));
   }
-  .collections .holder {
+  .collections > .holder {
     display: grid;
     gap: 25px;
     grid-template-columns: repeat(auto-fill, minmax(354px, 1fr));
@@ -912,9 +954,6 @@ margin: 25px 0;
     left: 0;
     box-shadow: 10px 0 26px 10px #000000b0;
   }
-  .nav .logo-holder svg {
-    display: flex;
-  }
   .header .bars {
     display: block;
   }
@@ -924,11 +963,17 @@ margin: 25px 0;
   }
   .rewardSection .firstHolder .textHolder p {
     max-width: 350px;
-}
+  }
+.swiper-slide:first-child .collectionSection {
+  border-left: 1px solid var(--border-color);
+  padding-left: 14px;
+  }
 }
 
 @media(max-width:768px) {
-
+  .nav .logo-holder svg {
+    display: flex;
+  }
   .header .links {
     display: none;
   }
@@ -937,8 +982,7 @@ margin: 25px 0;
   }
   .header .searchHolder .inputHolder input {
     width: 100px;
-
-}
+  }
   .header .searchHolder .inputHolder input:focus {
     position: absolute;
     top: 50%;
@@ -1019,6 +1063,9 @@ margin: 25px 0;
     left: unset;
     transform: none;
     margin-top: -75px;
+  }
+  .collections {
+    margin: 0;
   }
 }
 
