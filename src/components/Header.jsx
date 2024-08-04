@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { FaRegMoon } from "react-icons/fa";
 import { LuSun } from "react-icons/lu";
 import { IoMdSearch } from "react-icons/io";
+import { HiOutlineBars3 } from "react-icons/hi2";
 
 // Library
 import { Link, NavLink } from "react-router-dom";
@@ -21,7 +22,7 @@ const searchGames = (searchGame) => {
 };
 
 export default function Header() {
-  const { mode, setMode } = useAllContext();
+  const { mode, setMode, setOpenNav } = useAllContext();
   const [searchModel, setSearchModel] = useState(false);
   const [searchGame, setSearchGame] = useState('');
 
@@ -72,6 +73,9 @@ export default function Header() {
           <LuSun onClick={() => {setMode("light"); }}/>
         )}
       </div>
+      <HiOutlineBars3 className="bars" onClick={() => {
+        setOpenNav(prev => !prev)
+      }}/>
       </ul>
     </div>
   )

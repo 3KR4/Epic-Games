@@ -685,7 +685,6 @@ export const games = [
       storage: "50 GB available space"
     }
   },
-  
   {
     id: 41,
     name: "Fortnite",
@@ -953,6 +952,101 @@ export const games = [
       graphics: "NVIDIA GeForce GTX 1050 Ti / AMD Radeon RX 560",
       storage: "30 GB available space"
     }
+  },
+  {
+    id: 58,
+    name: "Rocket League",
+    img: require('./Images/games/Rocket League.jpg'),
+    review: 4.8,
+    price: 0.00,
+    sale: 0,
+    category: "popular",
+    developer: "Psyonix",
+    releaseDate: "2015-07-07",
+    details: "Rocket League is a vehicular soccer video game.",
+    systemRequirements: {
+      os: "Windows 7/8/10 (64-bit)",
+      processor: "2.5 GHz Dual core",
+      memory: "4 GB RAM",
+      graphics: "NVIDIA GeForce 760, AMD Radeon R7 270X, or better",
+      storage: "7 GB available space"
+    }
+  },
+  {
+    id: 59,
+    name: "Genshin Impact",
+    img: require('./Images/games/Genshin Impact.jpg'),
+    review: 4.6,
+    price: 0.00,
+    sale: 0,
+    category: "newest",
+    developer: "miHoYo",
+    releaseDate: "2020-09-28",
+    details: "Genshin Impact is an action role-playing game developed and published by miHoYo.",
+    systemRequirements: {
+      os: "Windows 7 SP1 64-bit, Windows 8.1 64-bit or Windows 10 64-bit",
+      processor: "Intel Core i5 or equivalent",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GeForce GT 1030 and higher",
+      storage: "30 GB available space"
+    }
+  },
+  {
+    id: 60,
+    name: "Apex Legends",
+    img: require('./Images/games/apex-legends.png'),
+    review: 4.4,
+    price: 0.00,
+    sale: 0,
+    category: "popular",
+    developer: "Respawn Entertainment",
+    releaseDate: "2019-02-04",
+    details: "Apex Legends is a free-to-play battle royale-hero shooter game developed by Respawn Entertainment.",
+    systemRequirements: {
+      os: "64-bit Windows 7",
+      processor: "Intel i5 3570K or equivalent",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GeForce GTX 970 / AMD Radeon R9 290",
+      storage: "22 GB available space"
+    }
+  },
+  {
+    id: 61,
+    name: "Fall Guys",
+    img: require('./Images/games/Fall Guys.jpg'),
+    review: 4.3,
+    price: 0.00,
+    sale: 0,
+    category: "popular",
+    developer: "Mediatonic",
+    releaseDate: "2020-08-04",
+    details: "Fall Guys is a platform battle royale game developed by Mediatonic.",
+    systemRequirements: {
+      os: "Windows 10 64bit only",
+      processor: "Intel Core i5 or AMD equivalent",
+      memory: "8 GB RAM",
+      graphics: "NVIDIA GTX 660 or AMD Radeon HD 7950",
+      storage: "2 GB available space"
+    }
+  },
+  {
+    id: 62,
+    name: "League of Legends",
+    img: require('./Images/games/lol.jpg'),
+    review: 4.7,
+    price: 0.00,
+    sale: 0,
+    category: "popular",
+    developer: "Riot Games",
+    releaseDate: "2009-10-27",
+    details: "League of Legends is a multiplayer online battle arena video game developed and published by Riot Games.",
+    systemRequirements: {
+      os: "Windows 7, Windows 8, or Windows 10",
+      processor: "3 GHz processor (supporting SSE2 instruction set or higher)",
+      memory: "2 GB RAM",
+      graphics: "Nvidia GeForce 8800/AMD Radeon HD 5670 or equivalent",
+      storage: "16 GB available space"
+    }
   }
 ];
 
@@ -1000,4 +1094,19 @@ export const discover = [
     mainImg: require('./Images/games/discover/The Legend of Zelda Breath of the Wild.jpg'),
     details: "Forget everything you know about The Legend of Zelda games. Step into a world of discovery, exploration, and adventure in The Legend of Zelda: Breath of the Wild.",
   },
+]
+
+export const deals = [
+  {
+    name:"Grand Theft Auto V",
+    img: require('./Images/deals/gta background.jpg'),
+    price: 29.99,
+    sale: 50
+  },
+  {
+    name: "The Witcher 3: Wild Hunt",
+    img: require('./Images/deals/TheWitcher3Background.png'),
+    price: 39.99,
+    sale: 50,
+  }
 ]

@@ -9,6 +9,8 @@ import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { IoMdSettings } from "react-icons/io";
 import { LuDownload } from "react-icons/lu";
 import { FaUser } from "react-icons/fa6";
+import { MdClose } from "react-icons/md";
+
 
 // Library
 import { NavLink } from 'react-router-dom';
@@ -18,14 +20,19 @@ import { games } from '../data'
 import { useAllContext } from "../Context";
 
 export default function Nav() {
-  const { mode, setMode } = useAllContext();
+  const { mode, openNav, setOpenNav } = useAllContext();
 
   return (
-    <div className='nav'>
+    <div className={`nav ${openNav && 'active'}`}>
       <div className="top">
-        <div className="logo">
-            {mode === 'light' ? (<img src={logoDark} alt="" />) : (<img src={logoLight} alt="" />)}
-          Epic Games
+        <div className="logo-holder">
+          <div className="logo">
+              {mode === 'light' ? (<img src={logoDark} alt="" />) : (<img src={logoLight} alt="" />)}
+              Epic Games
+            </div>
+            <MdClose onClick={() => {
+              setOpenNav(false)
+            }}/>
         </div>
         <ul className='navLinks'>
           <li>

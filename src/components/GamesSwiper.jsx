@@ -12,19 +12,8 @@ import { SlArrowRight } from "react-icons/sl";
 
 export default function GamesSwiper({ categorie, title }) {
   const filterGames = games.filter((x) => x.category === categorie);
-
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const swiperRef = useRef(null); // Ref for Swiper instance
-
-  useEffect(() => {
-    // Update Swiper's navigation elements after the component mounts
-    if (swiperRef.current && swiperRef.current.swiper && prevRef.current && nextRef.current) {
-      swiperRef.current.swiper.params.navigation.prevEl = prevRef.current;
-      swiperRef.current.swiper.params.navigation.nextEl = nextRef.current;
-      swiperRef.current.swiper.navigation.update();
-    }
-  }, [filterGames.length]); // Dependencies include filterGames to ensure proper re-render
 
   return (
     <>
@@ -46,14 +35,34 @@ export default function GamesSwiper({ categorie, title }) {
               prevEl: prevRef.current,
               nextEl: nextRef.current,
             }}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper; // Store swiper instance in ref
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.update();
-            }}
             spaceBetween={15}
             slidesPerView={6}
+            breakpoints={{
+              // when window width is >= 320px
+              320: {
+                slidesPerView: 2,
+              },
+              // when window width is >= 480px
+              480: {
+                slidesPerView: 2,
+              },
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 3,
+              },
+              // when window width is >= 1024px
+              1024: {
+                slidesPerView: 4,
+              },
+              // when window width is >= 1280px
+              1280: {
+                slidesPerView: 5,
+              },
+              // when window width is >= 1600px
+              1600: {
+                slidesPerView: 6, // Default value for large screens
+              },
+            }}
           >
             {filterGames.map((game, index) => (
               <SwiperSlide key={index}>
