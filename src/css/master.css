@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +12,6 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: var(--body-color) !important;
 }  
-
 :root {
   --body-color:   #ffffff;
   --main-color:   #2196F3 ;
@@ -32,18 +30,15 @@ body.dark {
   --paragraph-color :   #909090;
   --section-color:#2c2e2d;
   --section-color2:#171918;
-  --hover-color:  #a48020;
   --border-color: #525252;
   --box-shadow: rgb(0 0 0 / 24%) 0px 0px 23px -5px;
 }
-
 
 .App {
   display: flex;
   gap: 35px;
   color: white;
 }
-
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -65,6 +60,10 @@ h1,h2,h3,h4,h5,h6,li,svg,a {
   margin: 0;
   padding: 0;
   color: var(--title-color);
+}
+svg{
+  transition: 0.3s;
+  cursor: pointer;
 }
 p {
   margin: 0;
@@ -90,6 +89,54 @@ input {
 button {
   background: transparent;
   border: none;
+  cursor: pointer;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 800px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+/* Large */
+}
+@media (min-width: 1600px) {
+  .container {
+    width: 1550px;
+  }
+}
+
+.main-buttom {
+  text-align: center;
+  background: var(--main-color);
+  color: #fff;
+  width: 130px;
+  height: 45px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: .3s;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -159,7 +206,6 @@ button {
   background-color: var(--section-color);
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
 }
 .navigateIcons svg:hover {
   background: var(--border-color);
@@ -176,7 +222,6 @@ button {
   right: 0;
   bottom: 10px; /* Adjust bottom positioning */
 }
-
 
 .swiper-pagination-bullet {
   width: 11px !important;
@@ -274,6 +319,30 @@ button {
   text-decoration: line-through;
 }
 
+.logo-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+  margin-bottom: 15px;
+}
+.logo { 
+  color: var(--title-color);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  padding-left: 10px;
+}
+.logo-holder svg {
+  font-size: 27px;
+  display: none;
+}
+.logo-holder img {
+  width: 34px;  
+}
+
 /*! ============= NAV ============ */
 
 .nav {
@@ -289,29 +358,6 @@ button {
 }
 .nav svg {
   font-size: 22px;
-}
-.nav .logo-holder {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 20px;
-  margin-bottom: 15px;
-}
-.nav .logo { 
-  color: var(--title-color);
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  padding-left: 10px;
-}
-.nav .logo-holder svg {
-  font-size: 27px;
-}
-.nav img {
-  width: 34px;
 }
 .nav .navLinks {
   display: flex;
@@ -341,11 +387,10 @@ button {
 .nav .bottom li:first-child svg {
   font-size: 24px;
 }
-
-.App .main {
-  width: 100%;
+.App:has(.nav) .main {
   padding-left: 322px;
-  padding-right: 30px;
+  padding-right: 20px;
+  width: 100%;
 }
 /*! ============= HEADER ============ */
 
@@ -364,11 +409,18 @@ button {
   align-items: center;
   gap: 22px;
 }
+.header .first .logo-holder {
+  margin-bottom: 0;
+  padding-right: 0px;
+}
+.main.side .header .first .logo-holder {
+  display: none;
+}
+.header .first .logo-holder .logo {
+  padding: 0;
+}
 .header .searchHolder {
   position: relative;
-}
-.header .searchHolder .inputHolder {
-position: relative;
 }
 .header .searchHolder .inputHolder svg {
   position: absolute;
@@ -449,10 +501,16 @@ position: relative;
   display: flex;
   align-items: center;
 }
+.header .loginBtns {
+  display: flex;
+  gap: 15px;
+  margin-right: 3px;
+}
 .header .bars {
   font-size: 27px;
   transform: translateY(1px);
   margin-left: -8px;
+  display: none;
 }
 .header .links.last .darkLight svg {
   font-size: 18px;
@@ -464,29 +522,29 @@ body.dark .header .links.last .darkLight svg {
 
 /*! ========= LANDING =========  */
 
-.store {
+.home {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
-.store .landing {
+.home .landing {
   display: flex;
   flex-direction: row;
   gap: 20px;
   align-items: center;
 }
-.store .landing .mainSection {
+.home .landing .mainSection {
   width: 80%;
   position: relative;
   overflow: hidden;
   border-radius: 15px;
 }
-.store .landing .mainSection img {
+.home .landing .mainSection img {
   height: 675px;
   width: 100%;
   object-fit: cover;
 }
-.store .landing .mainSection .holder {
+.home .landing .mainSection .holder {
   position: absolute;
   z-index: 2;
   bottom: 13%;
@@ -495,7 +553,7 @@ body.dark .header .links.last .darkLight svg {
   flex-direction: column;
   gap: 30px;
 }
-.store .landing .mainSection .holder::before {
+.home .landing .mainSection .holder::before {
   content: '';
   position: absolute;
   left: 43%;
@@ -503,28 +561,28 @@ body.dark .header .links.last .darkLight svg {
   box-shadow: 0 0 298px 295px #00000087;
   z-index: -1;
 }
-.store .landing .mainSection .text {
+.home .landing .mainSection .text {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.store .landing .mainSection h4 {
+.home .landing .mainSection h4 {
   color: #fff;
   font-weight: 400;
 }
-.store .landing .mainSection p {
+.home .landing .mainSection p {
   width: 455px;
   color: #fff;
   font-weight: 300;
   line-height: 25px;
 }
-.store .landing .mainSection .buttons {
+.home .landing .mainSection .buttons {
   display: flex;
   flex-direction: row;
   gap: 18px;
   align-items: center;
 }
-.store .landing .mainSection .buttons a {
+.home .landing .mainSection .buttons a {
   background-color: white;
   padding: 14px 35px;
   font-size: 15px;
@@ -532,7 +590,7 @@ body.dark .header .links.last .darkLight svg {
   color: black;
   border-radius: 9px;
 }
-.store .landing .mainSection .buttons button {
+.home .landing .mainSection .buttons button {
   color: #fff;
   padding: 16px 20px;
   border-radius: 9px;
@@ -542,29 +600,29 @@ body.dark .header .links.last .darkLight svg {
   align-items: center;
   gap: 5px;
 }
-.store .landing .mainSection .buttons button:hover {
+.home .landing .mainSection .buttons button:hover {
   background-color: #ffffff36;
 }
-.store .landing .mainSection .buttons button svg {
+.home .landing .mainSection .buttons button svg {
   font-size: 20px;
   color: white;
 }
-.store .landing .megaSection {
+.home .landing .megaSection {
   width: 20%;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.store .landing .megaSection img {
+.home .landing .megaSection img {
   width: 55px;
   height: 65px;
 }
-.store .landing .megaSection li {
+.home .landing .megaSection li {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
 }
-.store .landing .megaSection li:before {
+.home .landing .megaSection li:before {
   content: '';
   position: absolute;
   top: 0;
@@ -573,14 +631,14 @@ body.dark .header .links.last .darkLight svg {
   height: 100%;
   background: var(--border-color);
 }
-.store .landing .megaSection li.backAnimation:before {
+.home .landing .megaSection li.backAnimation:before {
   animation: backAnimation 7s linear;
 }
-.store .landing .megaSection li.backAnimation {
+.home .landing .megaSection li.backAnimation {
   background: var(--section-color);
 }
-.store .landing .megaSection li img,
-.store .landing .megaSection li h5 {
+.home .landing .megaSection li img,
+.home .landing .megaSection li h5 {
   z-index: 2;
 }
 
@@ -880,13 +938,13 @@ body.dark .header .links.last .darkLight svg {
 
 
 @media(max-width:1600px) {
-  .store .landing .mainSection img {
+  .home .landing .mainSection img {
     height: 600px;
   }
-  .store .landing .mainSection {
+  .home .landing .mainSection {
     width: 75%;
   }
-  .store .landing .megaSection {
+  .home .landing .megaSection {
     width: 23%;
   }
   .freeSection .cards {
@@ -900,21 +958,21 @@ body.dark .header .links.last .darkLight svg {
 }
 
 @media(max-width:1400px) {
-  .store .landing {
+  .home .landing {
     flex-direction: column;
   }
-  .store .landing .mainSection {
+  .home .landing .mainSection {
     width: 100%;
   }
-  .store .landing .mainSection img {
+  .home .landing .mainSection img {
     height: 526px;
   }
-  .store .landing .megaSection {
+  .home .landing .megaSection {
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
   }
-  .store .landing .megaSection li {
+  .home .landing .megaSection li {
     width: 32.6%;
     padding: 18px 16px;
   }
@@ -924,13 +982,13 @@ body.dark .header .links.last .darkLight svg {
 }
 
 @media(max-width:1100px) {
-  .store .landing .mainSection .holder {
+  .home .landing .mainSection .holder {
     bottom: 8%;
   }
-  .store .landing .mainSection img {
+  .home .landing .mainSection img {
     height: 425px;
   }
-  .store .landing .megaSection li {
+  .home .landing .megaSection li {
     width: 32.5%;
   }
   .rewardSection .firstHolder .textHolder p {
@@ -940,22 +998,42 @@ body.dark .header .links.last .darkLight svg {
 
 @media(max-width:992px) {
   .App .main {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .main.container .logo h4 {
+    display: none;
+  }
+  .header .searchHolder .inputHolder input {
+    width: 180px;
+  }
+  .header .first .logo-holder {
+    display: flex;
+  }
+  .header .first .logo-holder .logo h4 {
+    display: none;
+  }
+  .header .first .logo-holder .logo {
+    margin-right: -6px;
+  }
+  .header .bars {
+    display: block;
   }
   .nav {
-    left: -294px;
+    left: -300px;
     background: var(--body-color);
     z-index: 102;
     border-right: 3px solid var(--border-color);
     padding-top: 32px;
+    padding-right: 9px;
+    width: 300px;
   }
   .nav.active {
     left: 0;
     box-shadow: 10px 0 26px 10px #000000b0;
   }
-  .header .bars {
-    display: block;
+  .nav .logo-holder svg {
+    display: flex;
   }
   .collectionSection:first-child {
     border-left: 1px solid var(--border-color);
@@ -964,64 +1042,91 @@ body.dark .header .links.last .darkLight svg {
   .rewardSection .firstHolder .textHolder p {
     max-width: 350px;
   }
-.swiper-slide:first-child .collectionSection {
-  border-left: 1px solid var(--border-color);
-  padding-left: 14px;
+  .swiper-slide:first-child .collectionSection {
+    border-left: 1px solid var(--border-color);
+    padding-left: 14px;
   }
 }
 
 @media(max-width:768px) {
-  .nav .logo-holder svg {
-    display: flex;
+  .App .main {
+    width: 100%;
+    padding: 0 12px;
   }
-  .header .links {
+  .header {
+    padding: 20px 0;
+  }
+  .header .links:not(.last) a:not(.storeTitle),
+  .header .links:not(.last) hr {
     display: none;
   }
   .header .links.last {
     display: flex;
   }
+  .header .first {
+    gap: 12px;
+  }
+  .header .searchHolder {
+    position: unset;
+  }
   .header .searchHolder .inputHolder input {
-    width: 100px;
+    width: 140px;
   }
   .header .searchHolder .inputHolder input:focus {
     position: absolute;
     top: 50%;
+    left: 0;
     transform: translateY(-50%);
-    width: 268px;
+    width: 100%;
     transition: width 0.3s;
+    z-index: 2;
+  }
+  .header .first .logo-holder .logo {
+    margin-right: 0;
+  }
+  .header .searchHolder .inputHolder svg {
+    left: 59px;
+    transition: 0s !important;
+  }
+  .header:has(input:focus) .logo-holder {
+    display: none;
   }
   .header .searchHolder:has(input:focus) .allResult {
-    top: 30px;
+    top: 75px;
+  }
+  .header .searchHolder:has(input:focus) svg {
+    left: 14px;
   }
   .header .searchHolder:has(input:focus) svg {
     z-index: 5;
   }
   .header .searchHolder .allResult {
-    width: 300px;
+    top: 75px;
+    width: 100%;
   }
-  .store .landing .megaSection li {
+  .home .landing .megaSection li {
     width: 48%;
   }
-  .store .landing .mainSection p {
+  .home .landing .mainSection p {
     width: 96%;
     font-size: 14px;
   }
-  .store .landing .mainSection img {
+  .home .landing .mainSection img {
     height: 297px; 
   }
-  .store .landing .mainSection .holder {
+  .home .landing .mainSection .holder {
     gap: 5px;
   }
-  .store .landing .mainSection .buttons a {
+  .home .landing .mainSection .buttons a {
     display: none;
   }
-  .store .landing .mainSection .buttons button {
+  .home .landing .mainSection .buttons button {
     padding: 13px 13px;
   }
-  .store .landing .megaSection li {
+  .home .landing .megaSection li {
     padding: 12px;
   }
-  .store .landing .megaSection li h5 {
+  .home .landing .megaSection li h5 {
     font-size: 13px;
     font-weight: 400;
   }

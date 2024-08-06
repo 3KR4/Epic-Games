@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 
+// img 
+import logoLight from '../Images/logo-light.png'
+import logoDark from '../Images/logo-black.webp'
+
 // Icons
 import { FaRegMoon } from "react-icons/fa";
 import { LuSun } from "react-icons/lu";
@@ -22,7 +26,7 @@ const searchGames = (searchGame) => {
 };
 
 export default function Header() {
-  const { mode, setMode, setOpenNav } = useAllContext();
+  const { mode, setMode, setOpenNav, userLog } = useAllContext();
   const [searchModel, setSearchModel] = useState(false);
   const [searchGame, setSearchGame] = useState('');
 
@@ -36,6 +40,12 @@ export default function Header() {
   return (
     <div className='header'>
       <div className="first">
+          <a href="/home" className="logo-holder">
+            <div className="logo">
+              {mode === 'light' ? (<img src={logoDark} alt="" />) : (<img src={logoLight} alt="" />)}
+                <h4>Epic Games</h4>
+            </div>
+          </a>
         <div className="searchHolder">
           <div className="inputHolder">
             <IoMdSearch/>
@@ -54,8 +64,13 @@ export default function Header() {
         </div>
 
         <ul className="links">
-          <a href="#">Borwse</a>
-          <hr />
+          {!userLog && 
+            <>
+              <a className="storeTitle" href="/store">Store</a>
+              <hr />
+            </>
+          }
+
           <a href="#">Discover</a>
           <a href="#">News</a>
           <a href="#">Free Games</a>
@@ -63,8 +78,16 @@ export default function Header() {
       </div>
 
       <ul className="last links">
-        <NavLink to="wishlist">Wishlist</NavLink>
-        <NavLink to="cart">Cart</NavLink>
+        {userLog ? 
+          <>
+            <NavLink to="wishlist">Wishlist</NavLink>
+            <NavLink to="cart">Cart</NavLink>
+          </>
+          :
+          <div className="loginBtns">
+            <a href="/register">Register</a>
+          </div>
+        }
         <hr />
         <div className="darkLight">
         {mode === "light" ? (
@@ -73,9 +96,11 @@ export default function Header() {
           <LuSun onClick={() => {setMode("light"); }}/>
         )}
       </div>
-      <HiOutlineBars3 className="bars" onClick={() => {
-        setOpenNav(prev => !prev)
-      }}/>
+      {userLog && 
+        <HiOutlineBars3 className="bars" onClick={() => {
+          setOpenNav(prev => !prev)
+        }}/>
+      }
       </ul>
     </div>
   )

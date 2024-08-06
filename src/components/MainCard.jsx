@@ -1,15 +1,20 @@
 import React from 'react'
 
+
+// Components
+import { useAllContext } from "../Context";
+
 // icons
 import { FaPlus } from "react-icons/fa6";
 
 export default function MainCard({data, showPrice}) {
+  const { userLog } = useAllContext();
   return (
     <div className="main-card">
       <div className="image">
         <img src={data.img} alt="" />
       </div>
-      <FaPlus className='addToWishList'/>
+      {userLog && <FaPlus className='addToWishList'/>}
       <div className="info">
         <h5 className='cat'>{data.category}</h5>
         <h4 className='name'>{data.name}</h4>

@@ -4,6 +4,7 @@ import logoDark from '../Images/logo-black.webp'
 
 // Icons
 import { FaTags } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { AiFillAppstore } from "react-icons/ai";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { IoMdSettings } from "react-icons/io";
@@ -28,13 +29,16 @@ export default function Nav() {
         <div className="logo-holder">
           <div className="logo">
               {mode === 'light' ? (<img src={logoDark} alt="" />) : (<img src={logoLight} alt="" />)}
-              Epic Games
+              <h4>Epic Games</h4>
             </div>
             <MdClose onClick={() => {
               setOpenNav(false)
             }}/>
         </div>
         <ul className='navLinks'>
+          <li>
+            <NavLink className='smallContentHolder' to="/home"><FaHome/>Home</NavLink>
+          </li>
           <li>
             <NavLink className='smallContentHolder' to="/store"><FaTags/>Store</NavLink>
           </li>

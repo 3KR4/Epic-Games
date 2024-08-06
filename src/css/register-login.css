@@ -1,0 +1,185 @@
+body:has(.register-page) {
+  overflow: hidden;
+}
+.App:has(.register-page) {
+  min-height: 102vh;
+  background-size: cover;
+  background-image: url(/src/Images/backlight.svg);
+}
+body.dark .App:has(.register-page) {
+  background-image: url(/src/Images/backdark.svg);
+}
+.register-page {
+  border-radius: 8px;
+  padding: 35px !important;
+  width: 550px !important;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 6px 0px var(--main-color);
+}
+.App:has(.register-page) .header {
+  display: none;
+}
+.register-page.forget .top {
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.register-page.forget .top p {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+.register-page .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: -6px;
+} 
+.register-page .top h1 {
+  font-size: 25px;
+}
+.register-page .top .follow,
+.register-page .top .follow .social {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
+.register-page .top .follow .social {
+  gap: 7px;
+}
+.register-page .top svg {
+  width: 33px;
+  height: 33px;
+  padding: 8px;
+  border-radius: 50%;
+  background: var(--section-color);
+}
+.register-page .top svg:hover {
+  background: var(--main-color);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+form .rowHolder {
+  display: flex;
+  gap: 10px;
+}
+form .inputHolder {
+  width: 100%;
+}
+form .inputHolder .holder {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+form .inputHolder .holder > svg {
+  color: var(--paragraph-color);
+  position: absolute;
+  z-index: 1;
+  top: 19px;
+  left: 14px;
+  font-size: 17px;
+}
+form .inputHolder .holder > svg.eye {
+  left: unset;
+  right: 14px;
+  top: 12px;
+  cursor: pointer;
+  padding: 6px;
+  width: 30px;
+  height: 30px;
+}
+form .inputHolder input, 
+form .inputHolder textarea {
+  width: 100%;
+  position: relative;
+  outline: none !important;
+  background: var(--section-color);
+  height: 52px;
+  padding-left: 42px;
+  resize: none;
+}
+form .inputHolder textarea {
+  height: 110px;
+  padding: 18px 40px;
+}
+form .inputHolder.password input {
+  padding-right: 40px;
+}
+form .inputHolder .holder::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  z-index: 1;
+  transition: 0.5s;
+  transform: translateX(-50%);
+  background: var(--main-color);
+}
+form .inputHolder.notvalid .holder::before {
+  background: #c81d1d;
+}
+form .inputHolder .holder:focus-within::before {
+  width: 100%;
+}
+form .inputHolder span {
+  color: #c81d1d;
+  font-size: 14px;
+  margin-top: 6px;
+  letter-spacing: 0.7px;
+  text-transform: capitalize;
+  margin-left: 5px;
+  display: flex;
+  gap: 3px;
+}
+form .inputHolder span svg {
+  color: #c81d1d;
+  transform: translateY(2px);
+}
+.register-page .btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 3px;
+}
+.register-page .btns .main-buttom {
+  width: 48.5% !important;
+}
+.register-page .btns a {
+  background: white;
+  color: var(--body-color);
+  font-weight: 700;
+}
+.register-page .btns a:hover {
+  background: var(--border-color) !important;
+  color: white;
+}
+body.light .register-page .btns a {
+  background: #585858;
+  color: var(--body-color);
+}
+.register-page .forget {
+  font-size: 14px;
+  margin: 0px 10px -8px;
+  transition: 0.3s;
+}
+.register-page .forget:hover {
+  color: var(--main-color);
+}
+
+@media (max-width: 768px) {
+  .register-page {
+    width: 100% !important;
+    padding: 25px !important;
+  }
+  .register-page .rowHolder {
+    flex-direction: column;
+  }
+  .register-page .follow .social {
+    gap: 7px;
+  }
+}

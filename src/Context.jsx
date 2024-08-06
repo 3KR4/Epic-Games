@@ -5,6 +5,7 @@ const AllContext = createContext();
 export function Context({ children }) {
   const [mode, setMode] = useState(localStorage.getItem("theme") || "dark");
   const [openNav, setOpenNav] = useState(false);
+  const [userLog, setUserLog] = useState(true);
 
   useEffect(() => {
     document.body.className = mode;
@@ -12,7 +13,7 @@ export function Context({ children }) {
   }, [mode]);
 
   return (
-    <AllContext.Provider value={{ mode, setMode, openNav, setOpenNav }}>
+    <AllContext.Provider value={{ mode, setMode, openNav, setOpenNav , userLog }}>
       {children}
     </AllContext.Provider>
   );

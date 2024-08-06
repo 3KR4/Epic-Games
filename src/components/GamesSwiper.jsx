@@ -1,16 +1,27 @@
 import React, { useRef, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+
+
+// Library
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules'; // Correct import
+import { Link } from 'react-router-dom';
+
+
 
 // Other imports
 import { games } from '../data';
 import MainCard from './MainCard';
+
+
+// Icons
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { SlArrowRight } from "react-icons/sl";
 
-export default function GamesSwiper({ categorie, title }) {
+export default function GamesSwiper({ categorie, title , isCategory}) {
+
+
   const filterGames = games.filter((x) => x.category === categorie);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -64,11 +75,15 @@ export default function GamesSwiper({ categorie, title }) {
               },
             }}
           >
-            {filterGames.map((game, index) => (
+          {!isCategory ? (
+            filterGames.map((game, index) => (
               <SwiperSlide key={index}>
-                <MainCard data={game} showPrice={true}/>
+                <MainCard data={game} showPrice={true}/> 
               </SwiperSlide>
-            ))}
+            ))
+          ) : (
+            <div></div>
+          )}
           </Swiper>
         </div>
       </div>

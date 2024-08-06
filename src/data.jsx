@@ -5,8 +5,9 @@ export const games = [
     img: require('./Images/games/A Way Out.jpg'),
     review: 4.5,
     price: 29.99,
-    sale: 10,
-    category: "newest",
+    sale: 8,
+    category: "action / story / sport / racing / casual / fantasy / rpg",
+    state: "newest / trending / popular / most played / ",
     developer: "Hazelight Studios",
     releaseDate: "2018-03-23",
     details: "A Way Out is an action-adventure game that is designed for split-screen cooperative multiplayer.",
@@ -43,7 +44,7 @@ export const games = [
     img: require('./Images/games/Assassins Creed Unity.jpg'),
     review: 3.8,
     price: 29.99,
-    sale: 0,
+    sale: 3,
     category: "newest",
     developer: "Ubisoft Montreal",
     releaseDate: "2014-11-11",
@@ -1049,7 +1050,6 @@ export const games = [
     }
   }
 ];
-
 export const discover = [
   {
     id: 16,
@@ -1094,19 +1094,26 @@ export const discover = [
     mainImg: require('./Images/games/discover/The Legend of Zelda Breath of the Wild.jpg'),
     details: "Forget everything you know about The Legend of Zelda games. Step into a world of discovery, exploration, and adventure in The Legend of Zelda: Breath of the Wild.",
   },
-]
-
+];
 export const deals = [
   {
     name:"Grand Theft Auto V",
     img: require('./Images/deals/gta background.jpg'),
     price: 29.99,
-    sale: 50
+    sale: 50,
   },
   {
     name: "The Witcher 3: Wild Hunt",
     img: require('./Images/deals/TheWitcher3Background.png'),
     price: 39.99,
     sale: 50,
-  }
-]
+  }
+];
+
+export const categorys = [
+  {
+    id: 1,
+    name:"multiplayer",
+    img: require('./Images/deals/gta background.jpg'),
+  },
+];
