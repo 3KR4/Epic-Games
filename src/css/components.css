@@ -1,0 +1,399 @@
+/*! ============= SingleGamePage ============ */
+
+.singleGame {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+.singleGame h2 {
+  color: var(--second-title-color);
+  font-size: 25px;
+  margin-bottom: -2px;
+}
+.singleGame .overview {
+  display: flex;
+  gap: 6px;
+  font-size: 20px;
+  align-items: center;
+  text-transform: capitalize;
+}
+.singleGame .overview .state {
+  display: flex;
+  gap: 6px;
+  margin-left: 13px;
+}
+.singleGame .overview .stars svg {
+  color:var(--second-title-color);
+}
+.singleGame .mainHolder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 25px;
+}
+.singleGame .mainHolder .firstImage {
+  width: 80%;
+  border-radius: 8px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 640px;
+}
+.singleGame .mainHolder .firstImage p {
+  font-size: 18px;
+  font-weight: 500;
+}
+.singleGame .mainHolder .sideSection {
+  width: 300px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+}
+/* .singleGame .mainHolder .firstImage:hover img ,
+.singleGame .mainHolder .sideSection .image:hover img{
+  scale: 1.05;
+  opacity: 0.7;
+} */
+.singleGame .mainHolder .firstImage img {
+  width: 100%;
+  height: 93%;
+  object-fit: inherit;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.singleGame .mainHolder .sideSection .image {
+  border-radius: 5px;
+  transition: 0.3s;
+  overflow: hidden;
+  height: 200px;
+}
+.singleGame .mainHolder .sideSection .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.singleGame .mainHolder .sideSection h5 {
+  background-color: var(--section-color);
+  width: fit-content;
+  padding: 6px 7px;
+  border-radius: 3px;
+  font-weight: 400;
+}
+.singleGame .mainHolder .sideSection .main-button {
+  font-family: system-ui;
+  font-weight: 600;
+}
+.singleGame .mainHolder .sideSection .main-button.buy {
+  color: #232323;
+  background: var(--main-color);
+}
+.singleGame .mainHolder .sideSection .detailsHolder p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.singleGame .mainHolder .sideSection .detailsHolder span {
+  color: var(--second-title-color);
+  font-size: 14px;
+}
+.singleGame .mainHolder .sideSection .buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 7px;
+}
+.singleGame .mainHolder .sideSection .buttons button {
+  width: 50%;
+}
+.singleGame .mainHolder .sideSection .buttons svg {
+  font-size: 18px;
+}
+.singleGame .mainHolder .sideSection .buttons a {
+  width: 100%;
+}
+
+.singleGame .systemReq {
+  margin: 40px 0;
+}
+.singleGame .systemReq .holder {
+  display: flex;
+  gap: 10px;
+}
+.singleGame .systemReq > h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+.singleGame .systemReq .systemHolder {
+  flex: 1;
+}
+.singleGame .systemReq .systemHolder , .rateHolder {
+  background-color: var(--section-color);
+  padding: 25px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+}
+.singleGame .systemReq .systemHolder p {
+  display: flex;
+  flex-direction: column;
+  color: var(--second-title-color);
+}
+.singleGame .systemReq .systemHolder p span {
+  color: var(--paragraph-color);
+  font-size: 15px;
+}
+.singleGame .rateHolder {
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+}
+.singleGame .rateHolder svg {
+  font-size: 40px;
+  color:var(--second-title-color);
+}
+
+@media(max-width:1400px) {
+  .singleGame .mainHolder .firstImage {
+    width: 70%;
+  }
+}
+
+@media(max-width:1100px) {
+  .singleGame .mainHolder {
+    flex-direction: column-reverse;
+  }
+  .singleGame .mainHolder .firstImage {
+    width: 100%;
+    height: 100%;
+  }
+  .singleGame .mainHolder .sideSection .image {
+    height: 420px;
+  }
+  .singleGame .mainHolder .sideSection .buttons {
+    margin-top: 20px;
+  }
+  .singleGame .rateHolder {
+    width: 35%;
+  }
+}
+
+@media(max-width:768px) {
+  .singleGame .systemReq .holder {
+    flex-direction: column;
+  }
+  .singleGame .rateHolder {
+    width: 100%;
+    height: 230px;
+}
+}
+
+
+
+/*! CART-wishlist */
+.cart {
+
+}
+.cart .holder {
+  display: flex;
+  gap: 15px;
+}
+.cart .noCart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 21px;
+  height: 73vh;
+}
+.cart .noCart svg {
+  color: var(--main-color);
+  font-size: 155px;
+}
+.cart .noCart h2 {
+  margin-bottom: -10px;
+}
+
+.cart-games-holder {
+  width: 74%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cart-games-holder .card {
+  background: var(--section-color);
+  border-radius: 8px;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.cart-games-holder .card img {
+  width: 110px;
+  height: 130px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.cart-games-holder .card .content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cart-games-holder .card .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-games-holder .card .info .left {
+
+}
+.cart-games-holder .card .left h6 {
+  font-size: 11px;
+  font-weight: 400;
+  background: var(--border-color);
+  padding: 3px 7px;
+  width: fit-content;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.cart-games-holder .card .left h4 {
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+.cart-games-holder .card .left h5 {
+
+}
+.cart-games-holder .card .right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.cart-games-holder .card .price {
+  font-size: 19px;
+}
+.cart-games-holder .card .right p.limit {
+  text-align: right;
+  font-size: 14px;
+  margin-top: 6px;
+}
+.cart-games-holder .card button {
+  align-self: flex-end;
+  color: var(--title-color);
+  background: var(--border-color);
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.cart-games-holder .card button:hover {
+  background: var(--red-color);
+}
+
+/*! CART-CHECKOUT-NAV  */
+.checkTotalNav {
+  width: 390px;
+  position: relative;
+}
+.totalPrices {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 30px;
+  background: var(--section-color);
+  gap: 20px;
+  position: sticky;
+  top: 100px;
+}
+.totalPrices ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.totalPrices ul li {
+  display: flex;
+  justify-content: space-between;
+}
+.totalPrices ul li:last-child {
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+  margin-top: 6px;
+}
+
+
+@media (max-width: 1490px) {
+  .cart .holder {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .checkTotalNav {
+    width: 50%;
+  }
+  .totalPrices {
+    width: 100%;
+  }
+  .cart-games-holder {
+    width: 100%;
+  }
+  .checkTotalNav {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-games-holder .card {
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 14px;
+  }
+  .singleGame .mainHolder .sideSection {
+    width: 100%;
+  }
+  .cart-games-holder .card .info {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  } 
+  .cart-games-holder .card .left h6 {
+    padding: 0;
+    background: transparent;
+  }
+  .cart-games-holder .card .right {
+    align-items: flex-start;
+  }
+  .cart-games-holder .card button {
+    align-self: flex-start;
+    margin-top: 11px;
+  }
+  .cart-games-holder .card .price {
+    font-size: 14px;
+  }
+  .cart-games-holder .price .sale.relative {
+    font-size: 11px;
+  }
+  .cart-games-holder .card .left h4 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .cart-games-holder .card .info {
+    gap: 10px;
+  }
+  .singleGame .mainHolder .firstImage img {
+    display: none;
+  }
+}

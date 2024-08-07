@@ -90,8 +90,8 @@ export default function Login() {
         </div>
 
         <div className="btns">
-          <button className='main-buttom' type="submit">Login</button>
-          <Link to='/register' className='main-buttom'>Register</Link>
+          <button className='main-button' type="submit">Login</button>
+          <Link to='/register' className='main-button'>Register</Link>
         </div>
         <Link to='/forget' className='forget'>Forget Your Password?</Link>
       </form>

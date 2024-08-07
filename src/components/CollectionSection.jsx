@@ -13,7 +13,7 @@ export default function CollectionSection({category}) {
       </div>
       <div className='holder'>
         {filterdgames.slice(0, 5).map((Game) => (
-          <MainCard data={Game} showPrice={true}/>
+          <MainCard data={Game} showPrice={true} sale='relative'/>
         ))}
       </div>
     </div>

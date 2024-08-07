@@ -1,20 +1,38 @@
 import React from 'react'
 
-
 // Components
 import { useAllContext } from "../Context";
+import { addToCart } from '../Redux/cartSlice';
+import { selectCartItemById } from '../Redux/cartSelectors'
+;
+import { useDispatch, useSelector } from 'react-redux';
 
 // icons
 import { FaPlus } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
-export default function MainCard({data, showPrice}) {
+export default function MainCard({data, showPrice, sale}) {
+  const dispatch = useDispatch();
+  const cartItem = useSelector(selectCartItemById(data.id));
+  const isInCart = !!cartItem;
+
+  const handleAddToCart = () => {
+    if (!isInCart) {
+      dispatch(addToCart(data)); 
+    }
+  };
+
   const { userLog } = useAllContext();
   return (
     <div className="main-card">
-      <div className="image">
+      <Link to={`/singleGamePage/${data.id}`} className="image">
         <img src={data.img} alt="" />
+      </Link>
+      <div className='addToWishList' onClick={handleAddToCart}>
+        {userLog && (isInCart ? <FaCheck /> : <FaPlus/>)}
       </div>
-      {userLog && <FaPlus className='addToWishList'/>}
+
       <div className="info">
         <h5 className='cat'>{data.category}</h5>
         <h4 className='name'>{data.name}</h4>
@@ -23,7 +41,7 @@ export default function MainCard({data, showPrice}) {
 
             {data.sale != 0 && (
               <>
-                <span className='sale'>{data.sale}% OFF</span>
+                <span className={`sale ${sale}`}>{data.sale < 10 && 0}{data.sale}% OFF</span>
                 <p className='lastPrice'>${data.price}</p>
               </>
             )}

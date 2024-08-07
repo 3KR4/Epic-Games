@@ -4,11 +4,13 @@ import React, { useState, useEffect, useRef } from 'react'
 import { games, discover, deals } from '../data'
 import GamesSwiper from '../components/GamesSwiper';
 import CollectionsGames from '../components/CollectionsGames';
-import MainCard from '../components/MainCard';
+import { useAllContext } from "../Context";
 
 // img 
 import  rewardImg  from '../Images/Rewardwithout.png';
 import  moreImg  from '../Images/deals/save.png';
+import  rtx  from '../Images/rtx.png';
+import  msi  from '../Images/msi.png';
 
 // icons 
 import { FiPlusCircle } from "react-icons/fi";
@@ -19,6 +21,7 @@ import { BsGift } from "react-icons/bs";
 export default function Home() {
   const [landingIndex, setLandingIndex] = useState(null);
   const intervalRef = useRef(null);
+  const { userLog } = useAllContext();
 
   
   useEffect(() => {
@@ -64,21 +67,36 @@ export default function Home() {
           ))}
         </ul>
       </div>
-      <GamesSwiper categorie='newest' title="Top New Releases" isCategory={false}/>
-      <div className="rewardSection">
-        <div className="firstHolder">
-          <img src={rewardImg} alt="" />
-          <div className="textHolder">
-            <h3>You've got Rewards!</h3>
-            <p>Use Epic Rewards at checkout to get an even better price on games, add-ons, and more.</p>
-          </div>
-          </div>
-          <div className="prices">
-            <h5>your current balance Is:</h5>
-            <span>$10.00 - Free</span>
-          </div>
+      <GamesSwiper loop='state' data='new' title="New Releases"/>
+
+      <GamesSwiper loop='state' data='most_popular' title="Most Popular"/>
+
+      {userLog && 
+        <div className="rewardSection">
+          <div className="firstHolder">
+            <img src={rewardImg} alt="" />
+            <div className="textHolder">
+              <h3>You've got Rewards!</h3>
+              <p>Use Epic Rewards at checkout to get an even better price on games, add-ons, and more.</p>
+            </div>
+            </div>
+            <div className="prices">
+              <h5>your current balance Is:</h5>
+              <span>$10.00 - Free</span>
+            </div>
+        </div>
+      }
+
+      <CollectionsGames
+        first={['racing', 'Racing']}
+        second={['RPG', 'RPG']}
+        third={['horror', 'horror']}
+      />
+
+      <div className="freeSection">
+        <GamesSwiper loop='free' title="Free Games"/>
       </div>
-      <GamesSwiper categorie='top' title="Most Played Games" isCategory={false}/>
+
       <div className="dealSection">
         <div className="title"> 
           <h3>Deals of the Week</h3>
@@ -91,19 +109,19 @@ export default function Home() {
             <img src={deal.img}/>
             </div>
             <p className='name'>{deal.name}</p>
-            <div className="price">
-            <pre className='discountPrice'  >
-            {deal.sale != 0 && (
-              <>
-                <span className='sale'>-{deal.sale}%</span>
-                <p className='lastPrice'>${deal.price}</p>
-              </>
-            )}
-            <h4 className='finalPrice'>
-              {deal.price != 0 && '$'} 
-              {deal.sale != 0 ?  (deal.price - (deal.price * deal.sale / 100)).toFixed(2) : deal.price == 0 ? 'FREE-GAME' : deal.price}</h4>
-          </pre>
-          </div>
+            <pre className='price'>
+
+              {deal.sale != 0 && (
+                <>
+                  <span className='sale relative'>{deal.sale}% OFF</span>
+                  <p className='lastPrice'>${deal.price}</p>
+                </>
+              )}
+              <h4 className='finalPrice'>
+                {deal.price != 0 && '$'} 
+                {deal.sale != 0 ?  (deal.price - (deal.price * deal.sale / 100)).toFixed(2) : deal.price == 0 ? 'FREE-GAME' : deal.price}</h4>
+
+            </pre>
           </div>
           )}
           <div className="collection">
@@ -115,29 +133,46 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="freeSection">
+
+      <CollectionsGames
+        onlyOne='action'
+      />
+
+      <GamesSwiper loop='state' data='top_seller' title="Top Seller"/>
+
+      <div className="partners">
         <div className="head">
           <div className="title">
-            <BsGift />
-            <h3>Free Games</h3>
+            <h3>Our Partners</h3>
+            <SlArrowRight />
           </div>
           <a href="#">View More</a>
         </div>
-        <div className="cards">
-          {games.filter(x => x.price == 0).slice(0, 5).map((freeGame) => (
-            <MainCard data={freeGame} showPrice={true}/>
-          ))}
-        </div>
+        <div className="mainHolder">
+        <div className="firstHolder">
+          <div className="image">
+            <img src={rtx} alt="" />
+          </div>
+          <h3>GeForce RTX Drivers</h3>
+          <p>NVIDIA RTX™ and NVIDIA Omniverse™ deliver the performance to help professionals, creators, developers, and students worldwide enhance creative workflows</p>
+          <span>Starting at $200.</span>
+          </div>
+          <div className="secondHolder">
+          <div className="image">
+            <img src={msi} alt="" />
+          </div>
+          <h3>MSI Claw A1M</h3>
+          <p>MSI Claw A1M, a groundbreaking handheld gaming device that marks a new era in portable gaming experiences. Powered by Intel® Core™ Ultra processors</p>
+          <span>Starting at $699.</span>
+          </div>
+          </div>
       </div>
+
+
+      <GamesSwiper loop='state' data='most_played' title="Most Played"/>
+
       <CollectionsGames
-        first={['newest', 'New Releases']}
-        second={['popular', 'top Popular']}
-        third={['action', 'top action']}
-      />
-      <CollectionsGames
-        first={['popular', 'top Popular']}
-        second={['action', 'top action']}
-        third={['newest', 'New Releases']}
+        onlyOne='adventure'
       />
     </div>
   );

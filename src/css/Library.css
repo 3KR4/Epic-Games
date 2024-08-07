@@ -1,0 +1,151 @@
+
+/* Library */
+
+.LibrarySection{
+display: flex;
+flex-direction: column;
+gap: 30px;
+}
+.LibrarySection h1{
+    font-size: 42px;
+}
+.LibraryGames{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+
+}
+.LibraryGames  li{
+    position: relative;
+}
+.LibraryGames  li:hover::before{
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    width: 100%;
+    border-bottom: 1px solid blue;
+}
+.Libraryholder .holder{
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+.holder .value-holder h4{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+.Libraryholder .select{
+    display: flex;
+    justify-content: space-between;
+}
+.Libraryholder .select.value-holder h4{
+    font-size: 15px;
+}
+.Libraryholder .select .icons{
+display: flex;
+gap:5px ;
+font-size: 25px;
+cursor: pointer;
+}
+.Libraryholder .select  .icons svg{
+    font-size: 26px;
+    width: 30px;
+}
+.Libraryholder .select  .icons svg:hover{
+    color: rgb(9, 147, 246);
+    background:var(--border-color) ;
+}
+.Libraryholder .select .filter{
+    position: relative;
+}
+.filter .categorie{
+    background: var(--section-color);
+    position: absolute;
+    top: 25px;
+    right: -1px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    padding: 18px 3px 23px 3px;
+    border-radius: 15px;
+    z-index: 9999;
+    visibility: hidden;
+}
+.filter .categorie.active{
+    visibility:visible;
+}
+
+.filter .categorie li{
+    padding: 4px 16px;
+    border-radius: 8px;
+}
+.filter .categorie li:hover{
+    background: var(--border-color);
+}
+.LibraryMain{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+.Libraryholder{
+    width: 85%;
+}
+
+.LibraryMain .filtration{
+    width: 15%;
+}
+.LibraryMain .filtration .title{
+    font-size: 20px;
+}
+.Libraryholder{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 85%;
+}
+
+
+
+
+
+
+
+
+.containerGames{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+.containerGames img{
+    width: 100%;
+    height: 300px;
+}
+.containerGames.active{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.containerGames.active > div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: var(--section-color2);
+    padding: 8px 12px;
+    border-radius: 15px;
+}
+.containerGames.active > div:hover{
+    background: var(--border-color);
+}
+.containerGames.active > div .image{
+    width: 65px;
+    height: 70px;
+}
+.containerGames.active > div .image img{
+    object-fit: unset;
+}

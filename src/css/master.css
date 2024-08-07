@@ -9,6 +9,7 @@
   text-decoration: none;
 }
 body {
+  overflow-x: hidden;
   font-family: 'Inter', sans-serif;
   background-color: var(--body-color) !important;
 }  
@@ -21,6 +22,7 @@ body {
   --section-color:#efefef;
   --section-color2:#ffffff;
   --border-color: #c3c3c3;
+  --red-color: #ce3636;
   --box-shadow: rgb(0 0 0 / 17%) 0px 0px 23px -5px;
 }
 body.dark {
@@ -28,7 +30,7 @@ body.dark {
   --title-color:   #c8c8c8;
   --second-title-color:#fff;
   --paragraph-color :   #909090;
-  --section-color:#2c2e2d;
+  --section-color:#212121;
   --section-color2:#171918;
   --border-color: #525252;
   --box-shadow: rgb(0 0 0 / 24%) 0px 0px 23px -5px;
@@ -83,6 +85,7 @@ hr {
 input {
   outline: none;
   border: none;
+  border-radius: 6px;
   color: var(--title-color);
 }
 
@@ -123,13 +126,13 @@ button {
   }
 }
 
-.main-buttom {
+.main-button {
   text-align: center;
-  background: var(--main-color);
+  background: var(--border-color);
   color: #fff;
-  width: 130px;
   height: 45px;
   font-size: 15px;
+  padding: 0 12px;
   font-weight: 500;
   border-radius: 4px;
   transition: .3s;
@@ -140,6 +143,11 @@ button {
   cursor: pointer;
 }
 
+.mainTitle {
+  font-size: 35px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
 .sideTitle {
   font-size: 16px;
   margin-bottom: 14px;
@@ -169,18 +177,31 @@ button {
   object-fit: fill;
 }
 
-.title{
+.title {
   display: flex;
   align-items: center;
   gap: 7px;
   cursor: pointer;
-  transition: 0.3s; 
+  transition: 0.3s;
+
+  text-transform: capitalize;
 }
 .title svg  {
   transition: 0.3s;
 }
 .title:hover svg {
   transform: translateX(5px);
+}
+.title.onlyOneColection {
+  margin-bottom: 15px;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
 }
 
 /* ========= Cards-Swiper =========  */
@@ -190,7 +211,7 @@ button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 
@@ -257,6 +278,7 @@ button {
   height: 305px;
   border-radius: 9px;
   overflow: hidden;
+  display: block;
 }
 .main-card .image img {
   width: 100%;
@@ -272,14 +294,16 @@ button {
   position: absolute;
   top: 7px;
   right: 7px;
+  visibility: hidden;
+  opacity: 0;
+}
+.main-card .addToWishList svg {
   color: white;
   background: #151515;
   border-radius: 50%;
   width: 22px;
   height: 22px;
   padding: 4px;
-  visibility: hidden;
-  opacity: 0;
   transition: 0.2s;
 }
 .main-card:hover .addToWishList {
@@ -292,19 +316,20 @@ button {
 .main-card .info .cat {
   color: var(--paragraph-color);
   margin-bottom: -2px;
+  text-transform: capitalize;
 }
 .main-card .info .name {
   letter-spacing: -0.8px;
   margin: 6px 0;
 }
-.main-card .info .price {
+.price {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 17px;
   font-weight: 600;
 }
-.main-card .info .price .sale {
+.price .sale {
   background: #151515;
   border-radius: 20px;
   padding: 3px 8px;
@@ -315,7 +340,14 @@ button {
   top: 7px;
   left: 7px;
 }
-.main-card .info .price .lastPrice {
+.price .sale.relative {
+  position: relative;
+  top: unset;
+  left: unset;
+  background: var(--main-color);
+  color: black;
+}
+.price .lastPrice {
   text-decoration: line-through;
 }
 
@@ -671,14 +703,15 @@ body.dark .header .links.last .darkLight svg {
 /*! ============= RewardSection ============ */
 
 .rewardSection{
-  padding: 15px;
+  padding: 22px;
   padding-right: 22px;
-  margin-left: 35px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
   background-color: var(--section-color);
+  margin: 20px 0;
+  margin-left: 15px;
 }
 .rewardSection .firstHolder {
   display: flex;
@@ -689,11 +722,11 @@ body.dark .header .links.last .darkLight svg {
   position: absolute;
   width: 132px;
   top: 44%;
-  left: -62px;
+  left: -32px;
   transform: translateY(-50%) rotate(55deg);
 }
 .rewardSection .firstHolder .textHolder {
-  margin-left: 70px;
+  margin-left: 93px;
 }
 .rewardSection .firstHolder .textHolder p {
   font-size: 15px;
@@ -720,7 +753,7 @@ body.dark .header .links.last .darkLight svg {
 .dealSection .deals{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
-  gap: 25px;
+  gap: 20px;
 }
 .dealSection .title{
   display: flex;
@@ -757,24 +790,6 @@ body.dark .header .links.last .darkLight svg {
 } 
 
 
-.dealSection .deals .card .price .discountPrice {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 600;
-}
-.dealSection .deals .card .price .sale {
-  background: #26bbff;
-  border-radius: 20px;
-  padding: 3px 11px;
-  font-size: 14px;
-  font-weight: bold;
-  color: black;
-}
-.dealSection .deals .card .price .lastPrice {
-  text-decoration: line-through;
-}
 
 .dealSection .deals .card .name,
 .dealSection .deals .collection p{
@@ -803,13 +818,7 @@ body.dark .header .links.last .darkLight svg {
   background-color: var(--section-color);
   border-radius: 13px;
 }
-.freeSection .head {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 18px;
-}
+
 .freeSection .head .title {
   display: flex;
   align-items: center;
@@ -881,7 +890,7 @@ body.dark .header .links.last .darkLight svg {
 
 /*! ============= collections ============ */
 .collections {
-  margin: 25px 0;
+  margin: 25px 0 0;
   position: relative;
 }
 .collections .swiper {
@@ -931,10 +940,71 @@ body.dark .header .links.last .darkLight svg {
   font-size: 14px;
   font-weight: bold;
   color: black;
-  position: relative;
-  top: unset;
-  left: unset;
 }
+
+
+/*! ============= Partners ============ */
+
+.partners {
+  background: var(--section-color);
+  padding: 24px 30px 31px;
+  border-radius: 8px;
+}
+.partners .head a {
+  border: 1px solid var(--border-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: -5px 0;
+}
+.partners .mainHolder {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+.partners .mainHolder .firstHolder ,
+.secondHolder {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.partners .mainHolder .image {
+  overflow: hidden;
+  height: 350px;
+  width: 100%;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.partners .mainHolder .image:hover img {
+  scale: 1.05;
+  opacity: 0.7;
+}
+.partners .mainHolder .image img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.partners .mainHolder p {
+  font-size: 15px;
+}
+.partners .mainHolder span {
+  color: var(--second-title-color);
+}
+
+.trending {
+  padding: 30px;
+  background-color: var(--section-color);
+  border-radius: 13px;
+}
+
+.trending  .navigateIcons svg {
+  background-color: var(--section-color2);
+}
+.navigateIcons svg:hover {
+  background: var(--border-color);
+}
+
 
 
 @media(max-width:1600px) {
@@ -979,6 +1049,13 @@ body.dark .header .links.last .darkLight svg {
   .rewardSection .firstHolder .textHolder p {
     max-width: 328px;
   }
+  .partners .mainHolder .image img{
+    object-fit: fill;
+  }
+  .partners .mainHolder {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media(max-width:1100px) {
@@ -1008,7 +1085,7 @@ body.dark .header .links.last .darkLight svg {
     width: 180px;
   }
   .header .first .logo-holder {
-    display: flex;
+    display: flex !important;
   }
   .header .first .logo-holder .logo h4 {
     display: none;
@@ -1030,7 +1107,7 @@ body.dark .header .links.last .darkLight svg {
   }
   .nav.active {
     left: 0;
-    box-shadow: 10px 0 26px 10px #000000b0;
+    box-shadow: 5px 0 26px 10px #0000005e;
   }
   .nav .logo-holder svg {
     display: flex;
@@ -1069,6 +1146,9 @@ body.dark .header .links.last .darkLight svg {
   .header .searchHolder {
     position: unset;
   }
+  .main.side .header .searchHolder .inputHolder input {
+    width: 100px;
+  }
   .header .searchHolder .inputHolder input {
     width: 140px;
   }
@@ -1077,7 +1157,7 @@ body.dark .header .links.last .darkLight svg {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 100%;
+    width: 100% !important;
     transition: width 0.3s;
     z-index: 2;
   }
@@ -1088,8 +1168,8 @@ body.dark .header .links.last .darkLight svg {
     left: 59px;
     transition: 0s !important;
   }
-  .header:has(input:focus) .logo-holder {
-    display: none;
+  .header:has(.inputHolder input:focus) .logo-holder {
+    display: none !important;
   }
   .header .searchHolder:has(input:focus) .allResult {
     top: 75px;

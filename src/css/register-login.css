@@ -9,6 +9,7 @@ body:has(.register-page) {
 body.dark .App:has(.register-page) {
   background-image: url(/src/Images/backdark.svg);
 }
+
 .register-page {
   border-radius: 8px;
   padding: 35px !important;
@@ -17,6 +18,11 @@ body.dark .App:has(.register-page) {
   top: 50%;
   transform: translateY(-50%);
   box-shadow: 0 0 6px 0px var(--main-color);
+}
+.logo-holder.regist {
+  position: absolute;
+  left: 12px;
+  top: 24px;
 }
 .App:has(.register-page) .header {
   display: none;
@@ -146,8 +152,11 @@ form .inputHolder span svg {
   justify-content: space-between;
   padding: 10px 3px;
 }
-.register-page .btns .main-buttom {
+.register-page .btns .main-button {
   width: 48.5% !important;
+}
+.register-page .btns .main-button:first-child {
+  background: var(--main-color);
 }
 .register-page .btns a {
   background: white;
@@ -171,6 +180,11 @@ body.light .register-page .btns a {
   color: var(--main-color);
 }
 
+@media (max-width: 992px) {
+  .App:has(.register-page) {
+    background-position: right;
+  }
+}
 @media (max-width: 768px) {
   .register-page {
     width: 100% !important;

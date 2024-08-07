@@ -19,10 +19,15 @@ import MainCard from './MainCard';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { SlArrowRight } from "react-icons/sl";
 
-export default function GamesSwiper({ categorie, title , isCategory}) {
+export default function GamesSwiper({ loop, data, title , isCategory = false}) {
 
 
-  const filterGames = games.filter((x) => x.category === categorie);
+  const filterCategory = games.filter((x) => x.category === data && x.price != 0);
+  const filterState = games.filter((x) => x.state === data && x.price != 0);
+  const filterFree = games.filter((x) => x.price == 0);
+
+  let dataToRender = loop == 'state' ? filterState :loop == 'free' ? filterFree : filterCategory
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -76,7 +81,7 @@ export default function GamesSwiper({ categorie, title , isCategory}) {
             }}
           >
           {!isCategory ? (
-            filterGames.map((game, index) => (
+            dataToRender.map((game, index) => (
               <SwiperSlide key={index}>
                 <MainCard data={game} showPrice={true}/> 
               </SwiperSlide>

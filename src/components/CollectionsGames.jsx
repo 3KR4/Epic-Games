@@ -6,15 +6,40 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules'; // Import Pagination
 
 import CollectionSection from './CollectionSection';
-
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { SlArrowRight } from "react-icons/sl";
 
-export default function CollectionGames({ first, second, third }) {
+import { games } from '../data';
+import MainCard from './MainCard';
+
+export default function CollectionGames({onlyOne, first, second, third }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
+  let filteredGames = games.filter((x) => x.category === onlyOne);
+
+  function chunkArray(array, chunkSize) {
+    let result = [];
+    for (let i = 0; i < array.length; i += chunkSize) {
+      result.push(array.slice(i, i + chunkSize));
+    }
+    return result;
+  }
+  
+  let chunkedArrays = chunkArray(filteredGames, 5);
+  
+  let firstArray = chunkedArrays[0] || [];
+  let secondArray = chunkedArrays[1] || [];
+  let thirdArray = chunkedArrays[2] || [];
+
   return (
     <div className="collections">
+      {onlyOne &&
+        <div className="title onlyOneColection">
+          <h3>{onlyOne}</h3>
+          <SlArrowRight />
+        </div>
+      }
       <Swiper
         modules={[Navigation, Pagination]} // Include Pagination module
         navigation={{
@@ -33,15 +58,40 @@ export default function CollectionGames({ first, second, third }) {
           1600: { slidesPerView: 3 },
         }}
       >
-        <SwiperSlide key={1}>
-          <CollectionSection category={first} />
-        </SwiperSlide>
-        <SwiperSlide key={2}>
-          <CollectionSection category={second} />
-        </SwiperSlide>
-        <SwiperSlide key={3}>
-          <CollectionSection category={third} />
-        </SwiperSlide>
+        {onlyOne ? (
+          <>
+            <SwiperSlide className='collectionSection' key={1}>
+              {firstArray.map((Game) => (
+                <MainCard data={Game} showPrice={true} sale='relative'/>
+              ))}
+            </SwiperSlide>
+
+            <SwiperSlide className='collectionSection' key={2}>
+              {secondArray.map((Game) => (
+                <MainCard data={Game} showPrice={true} sale='relative'/>
+              ))}
+            </SwiperSlide>
+
+            <SwiperSlide className='collectionSection' key={3}>
+              {thirdArray.map((Game) => (
+                <MainCard data={Game} showPrice={true} sale='relative'/>
+              ))}
+            </SwiperSlide>
+          </>
+        ) : (
+          <>
+            <SwiperSlide key={1}>
+              <CollectionSection category={first} />
+            </SwiperSlide>
+            <SwiperSlide key={2}>
+              <CollectionSection category={second} />
+            </SwiperSlide>
+            <SwiperSlide key={3}>
+              <CollectionSection category={third} />
+            </SwiperSlide>
+          </>
+        )}
+
       </Swiper>
       <div className="navigateIcons">
             <button ref={prevRef} className="swiper-button-prev"><IoIosArrowBack /></button>
