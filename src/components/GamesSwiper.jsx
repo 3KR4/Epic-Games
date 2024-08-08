@@ -24,9 +24,10 @@ export default function GamesSwiper({ loop, data, title , isCategory = false}) {
 
   const filterCategory = games.filter((x) => x.category === data && x.price != 0);
   const filterState = games.filter((x) => x.state === data && x.price != 0);
+  const filterDeveloper = games.filter((x) => x.developer === data);
   const filterFree = games.filter((x) => x.price == 0);
 
-  let dataToRender = loop == 'state' ? filterState :loop == 'free' ? filterFree : filterCategory
+  let dataToRender = loop == 'state' ? filterState : loop == 'category' ? filterCategory : loop == 'developer' ? filterDeveloper : filterFree
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);

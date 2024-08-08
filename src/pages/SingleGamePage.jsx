@@ -34,7 +34,7 @@ let currentGame = games.find(x => x.id == gameId )
       </div>
       <div className="mainHolder">
       <div className="firstImage">
-        <img src={currentGame.img} alt="" />
+        <img src={currentGame.mainImg} alt="" />
           <p>{currentGame.details}</p>
       </div>
       <div className="sideSection">
@@ -96,7 +96,8 @@ let currentGame = games.find(x => x.id == gameId )
         </div>
         </div>
         </div>
-        <GamesSwiper categorie={currentGame.category} title="Suggested Games"/>
+        <GamesSwiper loop='category' data={currentGame.category} title="Suggested Games"/>
+        <GamesSwiper loop='category' data={currentGame.category} title={`More From ${currentGame.developer}`}/>
     </div>
   );
 }
