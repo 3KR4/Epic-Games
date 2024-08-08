@@ -21,7 +21,6 @@ import { SlArrowRight } from "react-icons/sl";
 
 export default function GamesSwiper({ loop, data, title , isCategory = false}) {
 
-
   const filterCategory = games.filter((x) => x.category === data && x.price != 0);
   const filterState = games.filter((x) => x.state === data && x.price != 0);
   const filterDeveloper = games.filter((x) => x.developer === data);

@@ -128,8 +128,8 @@ button {
 
 .main-button {
   text-align: center;
-  background: var(--border-color);
-  color: #fff;
+  background: var(--section-color);
+  color: var(--title-color);
   height: 45px;
   font-size: 15px;
   padding: 0 12px;
@@ -142,7 +142,9 @@ button {
   align-items: center;
   cursor: pointer;
 }
-
+.main-button:hover {
+  background: var(--border-color);
+}
 .mainTitle {
   font-size: 35px;
   margin-top: 10px;
@@ -183,7 +185,7 @@ button {
   gap: 7px;
   cursor: pointer;
   transition: 0.3s;
-
+  margin-bottom: 10px;
   text-transform: capitalize;
 }
 .title svg  {
@@ -201,7 +203,6 @@ button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
 }
 
 /* ========= Cards-Swiper =========  */

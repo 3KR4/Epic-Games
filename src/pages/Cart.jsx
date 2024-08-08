@@ -16,7 +16,7 @@ export default function Cart() {
   const dispatch = useDispatch();
 
   return (
-    <div className='cart'>
+    <div className='cart-wishlist cart'>
       <h1 className='mainTitle'>My Cart</h1>
       <div className="holder">
         {cartItems.length == 0 ?

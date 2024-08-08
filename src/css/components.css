@@ -3,8 +3,7 @@
 .singleGame {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-
+  gap: 35px;
 }
 .singleGame h2 {
   color: var(--second-title-color);
@@ -17,6 +16,7 @@
   font-size: 20px;
   align-items: center;
   text-transform: capitalize;
+  margin: -19px 0;
 }
 .singleGame .overview .state {
   display: flex;
@@ -125,7 +125,7 @@
 }
 
 .singleGame .systemReq {
-  margin: 40px 0;
+  margin: 12px 0 10px;
 }
 .singleGame .systemReq .holder {
   display: flex;
@@ -204,14 +204,14 @@
 
 
 /*! CART-wishlist */
-.cart {
+.cart-wishlist  {
 
 }
-.cart .holder {
+.cart-wishlist  .holder {
   display: flex;
   gap: 15px;
 }
-.cart .noCart {
+.cart-wishlist  .noCart {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -220,11 +220,11 @@
   gap: 21px;
   height: 73vh;
 }
-.cart .noCart svg {
+.cart-wishlist  .noCart svg {
   color: var(--main-color);
   font-size: 155px;
 }
-.cart .noCart h2 {
+.cart-wishlist  .noCart h2 {
   margin-bottom: -10px;
 }
 
@@ -302,6 +302,9 @@
 .cart-games-holder .card button:hover {
   background: var(--red-color);
 }
+.wishlist .cart-games-holder {
+  width: 100%;
+}
 
 /*! CART-CHECKOUT-NAV  */
 .checkTotalNav {
@@ -334,10 +337,15 @@
   padding-top: 12px;
   margin-top: 6px;
 }
-
+.totalPrices .main-button {
+  background: var(--border-color);
+}
+.totalPrices .main-button:hover {
+  background: var(--main-color);
+}
 
 @media (max-width: 1490px) {
-  .cart .holder {
+  .cart-wishlist  .holder {
     flex-direction: column;
     gap: 25px;
   }

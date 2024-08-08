@@ -11,6 +11,7 @@ import Store from './pages/Store';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import WishList from './pages/WishList';
 import SingleGamePage from './pages/SingleGamePage';         
 
 import { Route, Routes } from 'react-router-dom';
@@ -39,6 +40,7 @@ function App() {
             <Route path="/library" element={<Library/>} />
             <Route path="/singleGamePage/:gameId" element={<SingleGamePage/>} />
             <Route path="/cart" element={<Cart/>} />
+            <Route path="/wishlist" element={<WishList/>} />
             <Route path="/register" element={<Register/>} />
             <Route path="/login" element={<Login/>} />
           </Routes> 

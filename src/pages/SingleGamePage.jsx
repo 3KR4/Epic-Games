@@ -7,17 +7,33 @@ import { games } from "../data";
 import MainCard from '../components/MainCard';
 import GamesSwiper from '../components/GamesSwiper';
 
+import { useAllContext } from "../Context";
+import { addToCart } from '../Redux/cartSlice';
+import { selectCartItemById } from '../Redux/cartSelectors'
+
 // icon
 import { IoGrid } from "react-icons/io5";
 import { FaWindows } from "react-icons/fa6";
 import { IoShareSocial } from "react-icons/io5";
 import { MdOutlineReport } from "react-icons/md";
 import { IoGameController } from "react-icons/io5";
-
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function SingleGamePage() {
   const { gameId } = useParams(); 
 let currentGame = games.find(x => x.id == gameId )
+
+const dispatch = useDispatch();
+const cartItem = useSelector(selectCartItemById(Number(gameId)));
+const isInCart = !!cartItem;
+
+const handleAddToCart = () => {
+  if (!isInCart) {
+    dispatch(addToCart(currentGame)); 
+  }
+};
+
+console.log(gameId);
 
   return (
     <div className="singleGame">
@@ -29,7 +45,7 @@ let currentGame = games.find(x => x.id == gameId )
         <h5>{currentGame.review.toFixed(1)}</h5>
         <div className="state">
           <IoGameController />
-          <h5>{currentGame.state}Trending</h5>
+          <h5>{currentGame.state == 'most_popular' ? 'Most Popular' : currentGame.state == 'top_seller' ? 'Top Seller' : currentGame.state == 'most_played' ? 'Most Played' :  'Newest'}</h5>
         </div>
       </div>
       <div className="mainHolder">
@@ -55,7 +71,7 @@ let currentGame = games.find(x => x.id == gameId )
 
           </pre>
         <button className="main-button buy">Buy Now</button>
-        <button className="main-button">Add To Cart</button>
+        <button className="main-button" onClick={handleAddToCart}>{!isInCart ? 'Add To Cart' : 'Already in Cart'}</button>
         <button className="main-button">Add to Whishlist</button>
         {/* <button className="main-button">
         <IoGrid />
@@ -97,7 +113,7 @@ let currentGame = games.find(x => x.id == gameId )
         </div>
         </div>
         <GamesSwiper loop='category' data={currentGame.category} title="Suggested Games"/>
-        <GamesSwiper loop='category' data={currentGame.category} title={`More From ${currentGame.developer}`}/>
+        <GamesSwiper loop='developer' data={currentGame.developer} title={`More From ${currentGame.developer}`}/>
     </div>
   );
 }
