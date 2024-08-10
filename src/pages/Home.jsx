@@ -23,7 +23,6 @@ export default function Home() {
   const intervalRef = useRef(null);
   const { userLog } = useAllContext();
 
-  
   useEffect(() => {
     setLandingIndex(0)
   }, []);

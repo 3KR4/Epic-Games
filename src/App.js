@@ -13,6 +13,8 @@ import Login from './pages/Login';
 import Cart from './pages/Cart';
 import WishList from './pages/WishList';
 import SingleGamePage from './pages/SingleGamePage';         
+import Support from './pages/Support';    
+import User from './pages/User';    
 
 import { Route, Routes } from 'react-router-dom';
 import { useAllContext } from "./Context";
@@ -42,7 +44,9 @@ function App() {
             <Route path="/cart" element={<Cart/>} />
             <Route path="/wishlist" element={<WishList/>} />
             <Route path="/register" element={<Register/>} />
+            <Route path="/support" element={<Support/>}/>
             <Route path="/login" element={<Login/>} />
+            <Route path="/user" element={<User/>} />
           </Routes> 
         </div>
       </div>

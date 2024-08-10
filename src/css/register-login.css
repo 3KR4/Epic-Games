@@ -106,6 +106,7 @@ form .inputHolder textarea {
   background: var(--section-color);
   height: 52px;
   padding-left: 42px;
+  padding-right: 16px;
   resize: none;
 }
 form .inputHolder textarea {
@@ -180,6 +181,190 @@ body.light .register-page .btns a {
   color: var(--main-color);
 }
 
+
+/*! ============= support-page .contactUs ============ */
+
+.support-page {
+  position: relative;
+  height: 91vh;
+}
+.support-page .contactUs .top {
+  font-size: 18px;
+  margin: -8px 0 15px;
+  width: 100%;
+}
+.support-page .contactUs {
+  width: 690px;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 0 6px 0px var(--main-color);
+  border-radius: 8px;
+  padding: 35px !important;
+  padding-bottom: 30px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.support-page .contactUs form {
+  width: 100%;
+}
+.support-page .contactUs .button {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+.support-page .contactUs .button .main-button {
+  width: 35%;
+  background-color: #2a7abb;
+  font-weight: 700;
+  color: white;
+  transition: 0.3s;
+}
+.support-page .contactUs .button .main-button:hover {
+  background-color: #1d5b8d;
+}
+.support-page .contactUs .textHolder {
+  position: relative;
+}
+.support-page .contactUs .textHolder textarea {
+  background-color: var(--section-color);
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+  outline: none ;
+  padding-left: 42px;
+  padding-right: 16px;
+  padding-top: 19px;
+  resize: none;
+  color: var(--title-color);
+  font-family: 'Inter', sans-serif;
+}
+.support-page .contactUs .textHolder svg {
+  color: var(--paragraph-color);
+  position: absolute;
+  z-index: 1;
+  top: 19px;
+  left: 14px;
+  font-size: 17px;
+}
+.support-page .contactUs .textHolder::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 0%;
+  height: 1px;
+  z-index: 1;
+  transition: 0.5s;
+  transform: translateX(-50%);
+  background: var(--main-color);
+}
+.support-page .contactUs .textHolder:focus-within::before {
+  width: 100%;
+}
+/* /* checkbox settings / */
+.ui-checkbox {
+  --primary-color: var(--main-color);
+  --secondary-color: white;
+  --primary-hover-color: #4096ff;
+  --checkbox-border-radius: 3px;
+  --checkbox-border-color: #d9d9d9;
+  --checkbox-border-width: 1px;
+  --checkbox-border-style: solid;
+  --checkmark-size: 1.2;
+}
+.ui-checkbox, 
+.ui-checkbox, 
+.ui-checkbox ::before, 
+.ui-checkbox::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ui-checkbox {
+  appearance: none;
+  padding: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: var(--checkbox-border-radius);
+  background: #d5d5d5;
+  border: var(--checkbox-border-width) var(--checkbox-border-style) var(--checkbox-border-color);
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+  border-color: #b8b8b8;
+}
+body.light .ui-checkbox {
+  background: white;
+}
+.ui-checkbox::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 0 0 calc(20px / 2.5) var(--primary-color);
+  border-radius: inherit;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+}
+.ui-checkbox::before {
+  top: 40%;
+  left: 50%;
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 7px;
+  border-right: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  transform: translate(-50%, -50%) rotate(45deg) scale(0);
+  opacity: 0;
+  transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),opacity 0.1s;
+}
+/* actions */
+.ui-checkbox:hover {
+  border-color: var(--primary-color);
+}
+.ui-checkbox:checked {
+  background: var(--primary-color);
+  border-color: transparent;
+}
+.ui-checkbox:checked::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+  transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+}
+.ui-checkbox:active:not(:checked)::after {
+  box-shadow: none;
+  transition: none;
+  opacity: 1;
+}
+.checkBox {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.checkBox .checkHolder {
+  display: flex;
+  gap: 15px;
+}
+.checkBox .checkHolder .miniCheckHolder {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.checkBox .checkHolder .miniCheckHolder label {
+  font-size: 15px;
+  color: var(--second-title-color);
+}
+
+
 @media (max-width: 992px) {
   .App:has(.register-page) {
     background-position: right;
@@ -195,5 +380,18 @@ body.light .register-page .btns a {
   }
   .register-page .follow .social {
     gap: 7px;
+  }
+  .support-page .contactUs {
+    width: 100%;
+  }
+  form .rowHolder {
+    flex-direction: column;
+  }
+  .checkBox {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .support-page .contactUs .button .main-button {
+    width: 64%;
   }
 }

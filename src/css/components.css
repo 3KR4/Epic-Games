@@ -45,6 +45,7 @@
 .singleGame .mainHolder .firstImage p {
   font-size: 18px;
   font-weight: 500;
+  margin-top: 12px;
 }
 .singleGame .mainHolder .sideSection {
   width: 300px;
@@ -62,7 +63,7 @@
 .singleGame .mainHolder .firstImage img {
   width: 100%;
   height: 93%;
-  object-fit: inherit;
+  object-fit: cover;
   cursor: pointer;
   border-radius: 15px;
   transition: 0.3s;
@@ -181,13 +182,16 @@
     height: 100%;
   }
   .singleGame .mainHolder .sideSection .image {
-    height: 420px;
+    height: 568px;
   }
   .singleGame .mainHolder .sideSection .buttons {
     margin-top: 20px;
   }
   .singleGame .rateHolder {
     width: 35%;
+  }
+  .singleGame .mainHolder .sideSection {
+    width: 100%;
   }
 }
 
@@ -198,7 +202,10 @@
   .singleGame .rateHolder {
     width: 100%;
     height: 230px;
-}
+  }
+  .singleGame .mainHolder .sideSection .image {
+    height: 390px;
+  }
 }
 
 
@@ -344,6 +351,186 @@
   background: var(--main-color);
 }
 
+/*! ========= USER ========== */
+
+.userPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userPage .Account.Settings {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.userPage .sidebar {
+  width: 315px;
+  padding: 13px;
+  border-radius: 7px;
+  background-color: var(--section-color);
+  color: #2c2c2c;
+  height: fit-content;
+}
+.userPage .sidebar  svg{
+  font-size: 18px;
+  color: var(--second-title-color);
+}
+.userPage .sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.userPage .sidebar ul li {
+  border-radius: 4px;
+  margin: 3px 0px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.userPage .sidebar ul li:hover{
+  background: var(--border-color);
+}
+.userPage .content {
+  width: 100%;
+  background-color: var(--section-color);
+  padding: 22px;
+  border-radius: 13px;
+}
+
+.userPage h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+
+}
+
+.userPage h3 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.userPage h3.h3last {
+  margin-bottom: -2px;
+  margin-top: 28px;
+}
+
+.userPage p {
+  margin-bottom: -7px;
+}
+.userPage p.psmall {
+  margin-bottom: 18px;
+}
+
+.userPage label {
+  font-weight: bold;
+
+}
+.userPage .holder-input{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.userPage input[type="text"],
+.userPage input[type="email"]
+  {
+    width: 100%;
+    padding: 15px 15px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: var(--border-color);
+}
+.userPage select{
+  width: 30%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.userPage .account-info{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.userPage .holder-select{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.userPage small {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 20px;
+
+}
+
+.userPage .input-group {
+  display: flex;
+  align-items: center;
+  width: 48%;
+  flex-wrap: wrap;
+  gap: 9px;
+  column-gap: 0;
+}
+
+.userPage .input-group input {
+  width: 91%;
+}
+
+.userPage .edit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.userPage .labelTitle{
+  display: flex;
+  justify-content: space-between;
+}
+.userPage .edit-button:hover {
+  background-color: #0056b3;
+}
+
+.userPage .name-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userPage .name-fields .input-box {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.userPage .address-fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.userPage .address-fields .input-box {
+  width: 48%;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.userPage .address-details{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
 @media (max-width: 1490px) {
   .cart-wishlist  .holder {
     flex-direction: column;
@@ -403,5 +590,35 @@
   }
   .singleGame .mainHolder .firstImage img {
     display: none;
+  }
+  .userPage .Account.Settings {
+    flex-direction: column-reverse;
+  }
+  .userPage .sidebar {
+    width: 100%;
+  }
+  .userPage .Account.Settings {
+    gap: 20px;
+  }
+  .userPage .input-group {
+    width: 100%;
+  }
+  .userPage .input-group input {
+    width: 84%;
+  }
+  .userPage select {
+    width: 100%;
+    margin-top: 11px;
+  }
+  .userPage .name-fields {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .userPage .name-fields .input-box,
+  .userPage .address-fields .input-box {
+    width: 100%;
+  }
+  .userPage .address-fields {
+    flex-direction: column;
   }
 }
