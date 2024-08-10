@@ -413,6 +413,7 @@ button {
 }
 .nav .bottom li {
   padding: 18px 26px;
+  text-transform: capitalize;
 }
 .nav .bottom li:first-child {
   gap: 5px;
@@ -564,6 +565,7 @@ body.dark .header .links.last .darkLight svg {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  margin-bottom: 60px;
 }
 .home .landing {
   display: flex;
@@ -956,6 +958,9 @@ body.dark .header .links.last .darkLight svg {
   padding: 24px 30px 31px;
   border-radius: 8px;
 }
+.partners .head {
+  margin-bottom: 18px;
+}
 .partners .head a {
   border: 1px solid var(--border-color);
   padding: 10px 15px;
@@ -1258,8 +1263,70 @@ body.dark .header .links.last .darkLight svg {
   .collections {
     margin: 0;
   }
+  .partners .mainHolder .image {
+    height: 176px;
+  }
+  .partners {
+    padding: 24px 18px 31px;
+  }
 }
 
 @media(max-width:400px) {
 
+}
+
+
+
+/* Pagination Container */
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 70px;
+}
+
+/* Pagination Items */
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  display: block;
+  padding: 10px 18px;
+  background: var(--section-color);
+  border-radius: 5px;
+  color: var(--paragraph-color);
+  transition: 0.3s, color 0.3s;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  align-items: center;
+}
+
+
+/* Disabled Pages (Next/Previous) */
+.pagination .disabled a {
+  color: var(--title-color);
+  background: var(--section-color);
+  pointer-events: none;
+}
+
+/* Hover Effects */
+.pagination a:hover,
+.pagination .active a {
+  background-color: var(--main-color);
+  color: white;
+}
+
+/* Previous and Next Links */
+.previous_page a, .next_page a {
+  font-weight: bold;
+}
+
+/* Break Label (e.g., "…") */
+.break-me {
+  padding: 8px 12px;
 }

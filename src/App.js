@@ -7,7 +7,7 @@ import Nav from './components/Nav'
 import Header from './components/Header'
 import Home from './pages/Home';
 import Library from './pages/Library';
-import Store from './pages/Store';
+import Shop from './pages/Shop';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
@@ -38,7 +38,7 @@ function App() {
           <Routes>
             <Route index element={<Home/>} />
             <Route path="/home" element={<Home/>} />
-            <Route path="/store" element={<Store/>} />
+            <Route path="/store" element={<Shop/>} />
             <Route path="/library" element={<Library/>} />
             <Route path="/singleGamePage/:gameId" element={<SingleGamePage/>} />
             <Route path="/cart" element={<Cart/>} />

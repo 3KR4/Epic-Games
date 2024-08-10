@@ -27,27 +27,27 @@ export default function MainCard({data, showPrice, sale}) {
   return (
     <div className="main-card">
       <Link to={`/singleGamePage/${data.id}`} className="image">
-        <img src={data.img} alt="" />
+        <img src={data.attributes.img.data.attributes.url} alt="" />
       </Link>
       <div className='addToWishList' onClick={handleAddToCart}>
         {userLog && (isInCart ? <FaCheck /> : <FaPlus/>)}
       </div>
 
       <div className="info">
-        <h5 className='cat'>{data.category}</h5>
-        <h4 className='name'>{data.name}</h4>
+        <h5 className='cat'>{data.attributes.categories.data[0].attributes.name}</h5>
+        <h4 className='name'>{data.attributes.name}</h4>
         {showPrice && (
           <pre className='price'>
 
-            {data.sale != 0 && (
+            {data.attributes.sale != 0 && (
               <>
-                <span className={`sale ${sale}`}>{data.sale < 10 && 0}{data.sale}% OFF</span>
-                <p className='lastPrice'>${data.price}</p>
+                <span className={`sale ${sale}`}>{data.attributes.sale < 10 && 0}{data.attributes.sale}% OFF</span>
+                <p className='lastPrice'>${data.attributes.price}</p>
               </>
             )}
             <h4 className='finalPrice'>
-              {data.price != 0 && '$'} 
-              {data.sale != 0 ?  (data.price - (data.price * data.sale / 100)).toFixed(2) : data.price == 0 ? 'FREE-GAME' : data.price}</h4>
+              {data.attributes.price != 0 && '$'} 
+              {data.attributes.sale != 0 ?  (data.attributes.price - (data.attributes.price * data.attributes.sale / 100)).toFixed(2) : data.attributes.price == 0 ? 'FREE-GAME' : data.attributes.price}</h4>
 
           </pre>
         )}

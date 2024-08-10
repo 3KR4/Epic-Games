@@ -158,6 +158,8 @@ form .inputHolder span svg {
 }
 .register-page .btns .main-button:first-child {
   background: var(--main-color);
+  color: white;
+  font-weight: 600;
 }
 .register-page .btns a {
   background: white;

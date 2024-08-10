@@ -15,8 +15,13 @@ import { FaUserGroup } from "react-icons/fa6";
 import { FaShop } from "react-icons/fa6";
 import { FaRegStar } from "react-icons/fa";
 import { FaGamepad } from "react-icons/fa";
+import { CiLogout } from "react-icons/ci";
 
 export default function User() {
+    const handleLogout = () => {
+        localStorage.clear();
+        window.location.href = '/home';
+    };
     return (
         <div className="AccountSection userPage">
             <div className="Account Settings">
@@ -36,6 +41,7 @@ export default function User() {
                         <li> <FaUserGroup />Creator Programs</li>
                         <li><FaShop /> Marketplace Seller</li>
                         <li><FaRegStar /> Redeem Code</li>
+                        <li onClick={handleLogout}><CiLogout /> Log Out</li>
                     </ul>
                 </aside>
                 <main className="content">
@@ -52,12 +58,12 @@ export default function User() {
 
                             <div className="input-group">
                             <label>Display Name:</label>
-                                <input type="text" placeholder="Name" />
+                                <input type="text" placeholder="Name" value={localStorage.username} />
                                 <button className="edit-button"><LuPenSquare /></button>
                             </div>
                             <div className="input-group">
                             <label>Email Address:</label>
-                                <input type="email" placeholder="Email" />
+                                <input type="email" placeholder="Email" value={localStorage.email} />
                                 <button className="edit-button"><LuPenSquare /></button>
                             </div>
                         </div>

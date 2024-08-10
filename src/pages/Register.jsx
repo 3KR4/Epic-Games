@@ -1,3 +1,5 @@
+
+import axios from 'axios';
 import React, { useState } from 'react'
 import '../css/register-login.css'
 import logoLight from '../Images/logo-light.png'
@@ -26,9 +28,29 @@ export default function Register() {
   }
 
   const onSubmit = (data) => {
-    console.log(data);
-  };
+    const userData = {
+      username: data.userName,
+      email: data.email,
+      password: data.password,
+      role: 1
+    };
   
+    axios.post('https://game-ecommrece-backend.onrender.com/api/users', userData, {
+      headers: {
+        Authorization: 'Bearer 38131a58665509f5b3bd487c8493a70529d7821830d17f12016633eaf7021c8427fc373ab642d3420378c780aa0169b27731ddb61628c5c2d9a563694a610e92b7288c25a1b5059981682388060fb0fd50c8fc87972c86d80a5e6f5d58cefbcc60934535e49971ff5c34db9589e2ed99e2a3eb5fd6b1bb6647be8684760c9aeb'
+      }
+    })
+    .then(response => {
+      console.log(response.data);
+      localStorage.setItem('username', response.data.username);
+      localStorage.setItem('email', response.data.email);
+      localStorage.setItem('token', '38131a58665509f5b3bd487c8493a70529d7821830d17f12016633eaf7021c8427fc373ab642d3420378c780aa0169b27731ddb61628c5c2d9a563694a610e92b7288c25a1b5059981682388060fb0fd50c8fc87972c86d80a5e6f5d58cefbcc60934535e49971ff5c34db9589e2ed99e2a3eb5fd6b1bb6647be8684760c9aeb');
+      window.location.href = '/home';
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  };
   return (
     <>
       <a href="/home" className="logo-holder regist">

@@ -1,4 +1,6 @@
-import React, { useRef } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -16,22 +18,35 @@ export default function CollectionGames({onlyOne, first, second, third }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  let filteredGames = games.filter((x) => x.category === onlyOne);
+  const [filterdGames , setFilterdGames] = useState([])
 
-  function chunkArray(array, chunkSize) {
-    let result = [];
-    for (let i = 0; i < array.length; i += chunkSize) {
-      result.push(array.slice(i, i + chunkSize));
-    }
-    return result;
+  useEffect(() => {
+    axios.get(`https://game-ecommrece-backend.onrender.com/api/products?populate=*&pagination[page]=1&pagination[pageSize]=25&filters[categories][name][$containsi]=${onlyOne}`)
+      .then(response => {
+        setFilterdGames(response.data.data);
+        console.log(response);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+
+function chunkArray(array, chunkSize) {
+  let result = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    result.push(array.slice(i, i + chunkSize));
   }
-  
-  let chunkedArrays = chunkArray(filteredGames, 5);
-  
-  let firstArray = chunkedArrays[0] || [];
-  let secondArray = chunkedArrays[1] || [];
-  let thirdArray = chunkedArrays[2] || [];
+  return result;
+}
 
+let chunkedArrays = chunkArray(filterdGames, 5);
+
+let firstArray = chunkedArrays[0] || [];
+let secondArray = chunkedArrays[1] || [];
+let thirdArray = chunkedArrays[2] || [];
+
+  
   return (
     <div className="collections">
       {onlyOne &&

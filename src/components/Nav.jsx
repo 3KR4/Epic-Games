@@ -64,7 +64,7 @@ export default function Nav() {
       <ul className="bottom">
           <li className='smallContentHolder'><LuDownload/>Download</li>
           <li className='smallContentHolder'><IoMdSettings/>Setting</li>
-          <li className='smallContentHolder'><a href="/user"><FaUser/>Mahmoud Elshazly</a></li>
+          <li className='smallContentHolder'><a href="/user"><FaUser/>{localStorage.username}</a></li>
       </ul>
     </div>
   )

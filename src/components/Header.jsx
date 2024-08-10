@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 // img 
 import logoLight from '../Images/logo-light.png'
@@ -18,24 +19,34 @@ import { games } from '../data'
 import { useAllContext } from "../Context";
 
 
-const searchGames = (searchGame) => {
-  if (searchGame.length === 0) {
-    return [];
-  }
-  return games.filter(game => game.name.toLowerCase().includes(searchGame.toLowerCase()));
-};
 
 export default function Header() {
   const { mode, setMode, setOpenNav, userLog } = useAllContext();
   const [searchModel, setSearchModel] = useState(false);
   const [searchGame, setSearchGame] = useState('');
-
-  const filteredProducts = searchGames(searchGame);
+  const [searchGameArr, setsearchGameArr] = useState([]);
+  
 
   const handleSearch = (e) => {
     setSearchGame(e.target.value);
     setSearchModel(e.target.value.length > 1);
   };
+
+  useEffect(() => {
+    if (searchGame.trim() === '') {
+      setsearchGameArr([]); // Clear results if search is empty
+      return; // Exit early if the search is empty
+    }
+
+    axios.get(`https://game-ecommrece-backend.onrender.com/api/products?populate=*&pagination[page]=1&pagination[pageSize]=5&filters[name][$containsi]=${searchGame}`)
+      .then(response => {
+        setsearchGameArr(response.data.data);
+        console.log(response);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, [searchGame]);
 
   return (
     <div className='header'>
@@ -51,15 +62,17 @@ export default function Header() {
             <IoMdSearch/>
             <input type="text" placeholder="Search Store" value={searchGame} onChange={handleSearch}/>
           </div>
-          <ul className="allResult" style={{display: filteredProducts.length > 0 || searchGame.length != 0 ? 'block' : 'none'}}>
-            {filteredProducts.slice(0, 4).map((game, index) => (
-              <Link className="smallContentHolder" to='' key={game.id}>
-                <img src={game.img} alt="" />
-                <h5>{game.name}</h5>
+          <ul className="allResult" style={{display: searchGameArr.length > 0 || searchGame.length != 0 ? 'block' : 'none'}}>
+            {searchGameArr.slice(0, 4).map((game, index) => (
+              <Link className="smallContentHolder" to={`/singleGamePage/${game.id}`} key={game.id} onClick={() => {
+                setSearchGame('')
+              }}>
+                <img src={game.attributes.img.data.attributes.url} alt="" />
+                <h5>{game.attributes.name}</h5>
               </Link>
             ))}
-            {filteredProducts.length > 4 && (<NavLink className="view" to=''>View More</NavLink>)}
-            {filteredProducts.length == 0 && searchGame.length != 0 && (<h5>There is no result like this: {searchGame}</h5>)}
+            {searchGameArr.length > 4 && (<NavLink className="view" to=''>View More</NavLink>)}
+            {searchGameArr.length == 0 && searchGame.length != 0 && (<h5>There is no result like this: {searchGame}</h5>)}
           </ul>
         </div>
 

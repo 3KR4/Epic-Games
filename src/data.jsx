@@ -2423,3 +2423,60 @@ export const deals = [
   sale: 30,
 }
 ]
+
+
+
+export const  allCategory=[
+  {
+    id:1,
+    Category:"Action",
+    img: require('./Images/games/Hogwarts Legacy.jpg')
+  },
+  {
+    id:2,
+    Category:"Fighting",
+    img: require('./Images/games/Assassins Creed Mirage.jpg'),
+    
+  },
+  {
+    id:3,
+    Category:"Horror Games",
+    img: require('./Images/games/Marvels Spider-Man 2.jpg'),
+  },
+  {
+    id:4,
+    Category:"Multiplayer",
+    img: require('./Images/games/Metal Gear Solid Delta Snake Eater.jpg'),
+  },
+  {
+    id:5,
+    Category:"Open world",
+    img: require('./Images/games/Starfield.jpg'),
+  },
+  {
+    id:6,
+    Category:"RPG Games",
+    img: require('./Images/games/The Legend of Zelda Breath of the Wild.jpg'),
+  },
+  {
+    id:7,
+    Category:"Shooter Games",
+    img: require('./Images/games/Assassins Creed Mirage.jpg'),
+    
+  },
+  {
+    id:8,
+    Category:"Sports Games",
+    img: require('./Images/games/Marvels Spider-Man 2.jpg'),
+  },
+  {
+    id:9,
+    Category:"Survival",
+    img: require('./Images/games/Metal Gear Solid Delta Snake Eater.jpg'),
+  },
+  {
+    id:10,
+    Category:"VR Games",
+    img: require('./Images/games/Starfield.jpg'),
+  },
+]

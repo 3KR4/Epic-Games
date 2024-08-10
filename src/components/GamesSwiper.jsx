@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-
+import React, { useRef, useEffect, useState } from 'react';
+import axios from 'axios';
 
 // Library
 import 'swiper/css';
@@ -7,29 +7,45 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules'; // Correct import
 import { Link } from 'react-router-dom';
-
-
+import { useAllContext } from "../Context";
 
 // Other imports
-import { games } from '../data';
+import { games, allCategory } from '../data';
 import MainCard from './MainCard';
-
 
 // Icons
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { SlArrowRight } from "react-icons/sl";
 
-export default function GamesSwiper({ loop, data, title , isCategory = false}) {
-
-  const filterCategory = games.filter((x) => x.category === data && x.price != 0);
-  const filterState = games.filter((x) => x.state === data && x.price != 0);
-  const filterDeveloper = games.filter((x) => x.developer === data);
-  const filterFree = games.filter((x) => x.price == 0);
-
-  let dataToRender = loop == 'state' ? filterState : loop == 'category' ? filterCategory : loop == 'developer' ? filterDeveloper : filterFree
-
-  const prevRef = useRef(null);
+export default function GamesSwiper({ loop, data, title }) {
+  const { setSelectedCat } = useAllContext();
   const nextRef = useRef(null);
+  const prevRef = useRef(null);
+
+
+
+  const [games, setGames] = useState([]);
+  
+  useEffect(() => {
+    let apiUrl = `https://game-ecommrece-backend.onrender.com/api/products?populate=*&pagination[page]=1&pagination[pageSize]=25`;
+
+    if (data === 'free') {
+      apiUrl += `&filters[price][$eq]=0`; // Filter for free games
+    } else if (data === 'category') {
+      apiUrl += `&filters[categories][name][$containsi]=${data}`;
+    } else {
+      apiUrl += `&filters[states][name][$containsi]=${data}`; // Filter by state
+    }
+
+    axios.get(apiUrl)
+      .then(response => {
+        setGames(response.data.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, [data]); // Re-run the effect if data changes
+
 
   return (
     <>
@@ -54,40 +70,42 @@ export default function GamesSwiper({ loop, data, title , isCategory = false}) {
             spaceBetween={15}
             slidesPerView={6}
             breakpoints={{
-              // when window width is >= 320px
               320: {
                 slidesPerView: 2,
               },
-              // when window width is >= 480px
               480: {
                 slidesPerView: 2,
               },
-              // when window width is >= 640px
               640: {
                 slidesPerView: 3,
               },
-              // when window width is >= 1024px
               1024: {
                 slidesPerView: 4,
               },
-              // when window width is >= 1280px
               1280: {
                 slidesPerView: 5,
               },
-              // when window width is >= 1600px
               1600: {
-                slidesPerView: 6, // Default value for large screens
+                slidesPerView: 6,
               },
             }}
           >
-          {!isCategory ? (
-            dataToRender.map((game, index) => (
+          {loop !== 'Category' ? (
+            games.map((game, index) => (
               <SwiperSlide key={index}>
                 <MainCard data={game} showPrice={true}/> 
               </SwiperSlide>
             ))
           ) : (
-            <div></div>
+            data.map((cat, index) => (
+              <SwiperSlide key={index} className='categoryCard' onClick={() => {
+                setSelectedCat(cat.attributes.name)
+              }}>
+                <div className='categoryCard' >
+                  <h4>{cat.attributes.name}</h4>
+                </div>
+              </SwiperSlide>
+            ))
           )}
           </Swiper>
         </div>

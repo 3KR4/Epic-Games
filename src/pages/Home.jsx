@@ -66,9 +66,14 @@ export default function Home() {
           ))}
         </ul>
       </div>
-      <GamesSwiper loop='state' data='new' title="New Releases"/>
 
-      <GamesSwiper loop='state' data='most_popular' title="Most Popular"/>
+
+      <GamesSwiper data='top news' title="Top News"/>
+
+      <GamesSwiper data='most popular' title="Most Popular"/>
+
+
+
 
       {userLog && 
         <div className="rewardSection">
@@ -86,15 +91,24 @@ export default function Home() {
         </div>
       }
 
-      <CollectionsGames
-        first={['racing', 'Racing']}
-        second={['RPG', 'RPG']}
-        third={['horror', 'horror']}
-      />
 
       <div className="freeSection">
-        <GamesSwiper loop='free' title="Free Games"/>
+        <GamesSwiper data='free' title="Free Games"/>
       </div>
+
+
+      <CollectionsGames
+        first={['Racing', 'Racing']}
+        second={['horror', 'horror']}
+        third={['Team Sports', 'Sports']}
+      />
+
+
+      
+
+      <GamesSwiper data='most played' title="Most Played"/>
+
+
 
       <div className="dealSection">
         <div className="title"> 
@@ -133,11 +147,12 @@ export default function Home() {
         </div>
       </div>
 
+      <GamesSwiper data='trending' title="Trending"/>
+
       <CollectionsGames
         onlyOne='action'
       />
 
-      <GamesSwiper loop='state' data='top_seller' title="Top Seller"/>
 
       <div className="partners">
         <div className="head">
@@ -167,12 +182,11 @@ export default function Home() {
           </div>
       </div>
 
-
-      <GamesSwiper loop='state' data='most_played' title="Most Played"/>
-
       <CollectionsGames
         onlyOne='adventure'
       />
+
+<GamesSwiper data='top sellers' title="Top Sellers"/>
     </div>
   );
 }

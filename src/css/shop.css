@@ -1,0 +1,73 @@
+.Browse{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.Browse .title{
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.Browse .title svg{
+    font-size: 14px;
+    margin-top: 4px;
+}
+.categoryCard div {
+    background: var(--section-color2);
+    padding: 24px 10px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    gap: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.categoryCard div:hover{
+    background: var(--border-color);
+}
+.categoryCard img{
+    width: 149px;
+    height: 131px;
+}
+.categoryCard h4{
+    text-align: center;
+}
+.holder-Browse{
+    display: flex;
+    align-items: center;
+    
+}
+.BrowseSection{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.categorie-Browse{
+    background: var(--section-color);
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    padding: 18px 3px 23px 3px;
+    border-radius: 15px;
+    z-index: 9999;
+    position: absolute;
+    left: 51px;
+    top: 26px;
+    visibility: hidden;
+}
+.categorie-Browse li{
+    padding: 4px 16px;
+    border-radius: 8px;
+}
+.categorie-Browse li:hover{
+    background: var(--border-color);
+}
+.categorie-Browse.active{
+    visibility: visible;
+}
+
+
+
