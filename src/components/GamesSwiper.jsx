@@ -6,7 +6,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules'; // Correct import
-import { Link } from 'react-router-dom';
 import { useAllContext } from "../Context";
 
 // Other imports
@@ -23,15 +22,15 @@ export default function GamesSwiper({ loop, data, title }) {
   const prevRef = useRef(null);
 
 
-
   const [games, setGames] = useState([]);
   
   useEffect(() => {
     let apiUrl = `https://game-ecommrece-backend.onrender.com/api/products?populate=*&pagination[page]=1&pagination[pageSize]=25`;
 
+
     if (data === 'free') {
       apiUrl += `&filters[price][$eq]=0`; // Filter for free games
-    } else if (data === 'category') {
+    } else if (title === 'Suggested Games') {
       apiUrl += `&filters[categories][name][$containsi]=${data}`;
     } else {
       apiUrl += `&filters[states][name][$containsi]=${data}`; // Filter by state
